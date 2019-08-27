@@ -274,9 +274,21 @@ Les payloads **DEVRAIENT** être retournées au format application/json et **DOI
 
 Les propriétés contenues dans une payload JSON **NE DOIVENT PAS** contenir elles-mêmes du json ou du xml. 
 
+# Requête
 
+Cette section couvre les standards liés aux requêtes (i.e. filtre, pagination, tri, asynchronisme, etc).
 
+## Asynchronisme
 
+Lors d'une opération conduite de manière asynchrone par le serveur, celui-ci **DOIT** retourner un code HTTP 202 avec un header Location désignant l'emplacement de l'URL de suivi de l'opération. Cet URL pointera sur une ressource de type operations.
 
+```
+Location: https://VaHappyHi:8081/v2/operations/8156ab4e
+```
 
+La ressource `operation` **DEVRAIT** contenir l'état actuel de l'opération (`notStarted`, `running`, `succeeded`, `failed`). 
+
+* Si l'état est `notStarted` ou `running`, alors le code de retour **DOIT** être 202 et le header location reste le même,
+* Si l'état est `notStarted` ou `running`, alors le header Retry-After **DEVRAIT** indiquer le nombre de secondes à attendre avant de vérifier l'état de l'opération,
+* Si l'état est `succeeded`, alors le code de retour **DOIT** être 200 et le header location doit désormais retourner l'emplacement de la ressource en question.
 
