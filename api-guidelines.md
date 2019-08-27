@@ -338,3 +338,19 @@ Il existe deux types de techniques d'itération:
 
 Il est important de prendre en compte la façon dont est utilisée la pagination c/o les consommateurs. Il semblerait que l'accès direct à une page spécifique est bien moins utilisé que la navigation via des liens de type _page suivante/page précédente_. De ce fait, il vaut mieux favoriser la pagination de type _cursor-based_.
 
+# Nomenclature
+
+Cette section couvre les standards liés aux nomenclatures des ressources, URI, etc.
+
+## Règles générales
+
+### Règles générales de nommage
+
+Le développement d'API **DOIT** se faire en anglais, **NE DOIT PAS** contenir d'acronyme et **DOIT** utiliser le `camelCase` (sauf indication contraire).
+
+### Lexique
+
+Les noms **DOIVENT** provenir du Glossaire métier (Internal link), et dans un deuxième temps, se baser sur le référentiel de l'AFA (Specific Insurance Link).
+
+
+
