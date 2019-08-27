@@ -171,7 +171,7 @@ Le nom des propriétés booléennes **POURRAIT** être préfixé par `Is` ou `Ha
 
 ### Identifiant
 
-Pour des raisons de sécurité, les identifiants techniques exposés **DEVRAIENT** être non-séquentiels et non-déterministes, par exemple, `UUID` v4 [https://tools.ietf.org/html/rfc4122](RFC-4122). 
+Pour des raisons de sécurité, les identifiants techniques exposés **DEVRAIENT** être non-séquentiels et non-déterministes, par exemple, `UUID` v4 [RFC-4122](https://tools.ietf.org/html/rfc4122). 
 
 ### Représentation commune des données business
 
