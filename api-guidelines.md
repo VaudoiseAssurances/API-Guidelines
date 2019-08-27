@@ -74,4 +74,48 @@ _La communauté de l'API est tout à fait consciente que cette solution est temp
 
 Une API **DOIT** exposer une documentation explicite, complète et à jour de ses endpoints et **DEVRAIT** l'exposer sous forme d'un Swagger.
 
+## REST
 
+### Ressources au lieu de verbe
+
+Les APIs **DOIVENT** être designées autour des ressources, et **NE DOIVENT PAS** représenter des actions. Une API **PEUT** inclure les contrôles hypermedia (HATEOAS).
+
+#### Niveau de maturité
+
+Idéalement, nous visons le niveau 2 du modèle de maturité de Richardson, mais il est tout à fait possible d'utiliser le niveau 3.
+
+REST est centralisé autour des entités/ressources et l'utilisation des méthodes HTTP standards (tq. GET/POST/PUT/DELETE) en tant qu'opérations. Les URLs ne doivent contenir que des noms, et non pas des verbes.
+
+Par exemple, au lieu d'avoir le verbe annuler dans l'URL, il faut plutôt penser à la ressource annulation.
+
+### Utilisation des verbes
+
+Les méthodes Http standard ont une signification, elles sont à utiliser pour déterminer le type d'action à effectuer.
+
+Bien que ces méthodes ne soient pas équivalentes à du CRUD, il est préférable dans notre cas de les utiliser comme tel à des fins de simplification et de ne garder que des créations non idempotentes.
+
+| Méthode   | Action    | Définition |          |
+|-----------|-----------|------------|----------|
+| POST      | Non-idempotent | Créer une resource | C |
+| POST      | Nullipotent (Safe) | Retourner une/des resource(s) | R |
+| POST      | Idempotent | Modifier une ressource | U |
+| DELETE      | Idempotent | Supprimer une resource | D |
+
+#### POST
+* Un POST (create, dans notre cas) exécuté avec succès retourne un 201. Le header doit contenir un header Location donnant le lien vers la nouvelle entité.
+* Dans le cas d'une opération asynchrone, la réponse doit être un 202 contenant un header Location permettant de monitorer l'état de l'opération.
+
+#### GET
+
+* Un GET retournant une ressource exécutée avec succès retourne un 200.
+* Un GET retournant plusieurs ressources avec succès retourne un 200 si toutes les ressource sont présentes ou un 206 si une partie des ressources est retournée (paging, top n). Dans ce cas-là, la réponse doit contenir un header Content-Range. 
+
+#### PUT
+
+* Un PUT (update, dans notre cas) exécutée avec succès retourne un 200 ou un 204.
+* Dans le cas d'une opération asynchrone, la réponse doit être un 202 contenant un header Location permettant de monitorer l'état de l'opération.
+
+#### DELETE
+
+* Un DELETE exécuté avec succès retourne un 200 ou un 204.
+* Dans le cas d'une opération asynchrone, la réponse doit être un 202 contenant un header Location permettant de monitorer l'état de l'opération.
