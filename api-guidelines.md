@@ -18,6 +18,8 @@ Ce présent document utilise les termes **DOIT**, **DEVRAIT**, **PEUT** comme mo
 
 # Principes de base
 
+Cette section couvre les principes de base. 
+
 ## API First
 
 ### Designer l'API avant de commencer l'implémentation technique
@@ -119,3 +121,64 @@ Bien que ces méthodes ne soient pas équivalentes à du CRUD, il est préférab
 
 * Un DELETE exécuté avec succès retourne un 200 ou un 204.
 * Dans le cas d'une opération asynchrone, la réponse doit être un 202 contenant un header Location permettant de monitorer l'état de l'opération.
+
+# Message
+
+Cette section couvre la gouvernance sur le format des messages.
+
+## Données et représentations
+
+### Encodage
+
+Les données **DEVRAIENT** être encodées en UTF-8.
+
+### Enumérations
+
+Les données **DEVRAIENT** être représentées sous forme d'énumérations plutôt que sous forme de codes cryptiques. De plus, les positions d'énumérations **DEVRAIENT** être sérialisées sous forme de chaîne de caractères en `camelCase` afin d'éviter les erreurs de mapping.
+
+```javascript
+Content-type: application/x.va.validation+json
+{
+    // Pas d'ambiguité
+    "titre":"baron"
+      
+    // Risque d'erreur de mapping, risque de dérive en maintenance évolutive
+    "titre": 4
+}
+```
+
+### Données et affichage
+
+Lorsqu'une propriété peut être exprimée soit sous forme de données, soit sous forme d'affichage, l'API **DEVRAIT** l'énoncer clairement.
+
+```javascript
+Content-type: application/x.va.validation+json
+{
+    "myDateTime": "1997-09-02T19:20:30.45+01:00", // Par défaut, de la data
+    "myDateTimeDisplay": "Lundi 2 septembre à 19heures 20 minutes 30 secondes 45 centièmes, et dans le fuseau horaire GM+1", // Expliciter lorsqu'il s'agit de display. C'est assez long ?
+ 
+    "myDate": "1985-08-09", // Par défaut, de la data
+    "myDateDisplay": "Vendredi 9 août 1985", // Expliciter lorsqu'il s'agit de display et de l'anniversaire à JFR
+      
+    "gender":"M",
+    "genderDisplay":"Male"
+}
+```
+
+### Booléens
+
+Le nom des propriétés booléennes **POURRAIT** être préfixé par `Is` ou `Has` afin de rendre la nature du champ plus claire.
+
+### Identifiant
+
+Pour des raisons de sécurité, les identifiants techniques exposés **DEVRAIENT** être non-séquentiels et non-déterministes, par exemple, `UUID` v4 [https://tools.ietf.org/html/rfc4122](RFC-4122). 
+
+### Représentation commune des données business
+
+L'API **DEVRAIT** se baser sur la représentation commune des données business. Pour plus d'informations, consulter Représentation communes des données business (Internal link).
+
+
+
+
+
+
