@@ -49,7 +49,7 @@ Il y a deux possibilités pour changer une API sans la casser:
 
 ### Règles pour faire évoluer une API
 
-Chaque modification mineur d'une API DOIT suivre les règles d'extension:
+Chaque modification mineure d'une API DOIT suivre les règles d'extension:
 
 * **NE DOIT PAS** retirer de champs/propriétés,
 * **NE DOIT PAS** rendre requis des champs optionnels,
