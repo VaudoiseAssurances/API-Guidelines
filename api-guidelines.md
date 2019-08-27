@@ -34,3 +34,26 @@ L'objectif d'une telle démarche est de permettre des retours le plus rapidement
 
 L'implémentation d'une API **DOIT** toujours être conforme avec la description de l'API : cela représente le contrat entre l'API et ses consommateurs.
 
+## Compatibilité
+
+### Ne pas casser la rétrocompatibilité
+
+Les changements d'APIs dans une même version majeur **NE DOIVENT PAS** casser la rétrocompatibilité. Les APIs sont un contrat entre le fournisseur de service et les consommateurs qui ne peut pas être cassé par des décisions unilatérales.
+
+Il y a deux possibilités pour changer une API sans la casser:
+
+* suivre les règles des extensions compatibles
+* introduire une nouvelle version d'API tout en supportant les anciennes versions.
+
+### Règles pour faire évoluer une API
+
+Chaque modification mineur d'une API DOIT suivre les règles d'extension:
+
+* **NE DOIT PAS** retirer de champs/propriétés,
+* **NE DOIT PAS** rendre requis des champs optionnels,
+* **NE DOIT PAS** supprimer un endpoint existant,
+* Tout ce qui est rajouté **DOIT** être optionnel.
+
+Si l'une des règles ci-dessus ne peut être respectée pour une quelconque raison, un développeur d'API **DOIT** publier une nouvelle version majeure.
+
+
