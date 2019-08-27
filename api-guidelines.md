@@ -264,6 +264,17 @@ Content-type: application/vnd.va.exception+json
 }
 ```
 
+## Payload JSON
+
+### Format - négociation de contenu
+
+Les payloads **DEVRAIENT** être retournées au format application/json et **DOIVENT** respecter les conventions de ce format (`camelCase`, etc). Un service **PEUT** traiter d'autres formats (xml, yml) via le header standard Accept.
+
+### JSON'ception
+
+Les propriétés contenues dans une payload JSON **NE DOIVENT PAS** contenir elles-mêmes du json ou du xml. 
+
+
 
 
 
