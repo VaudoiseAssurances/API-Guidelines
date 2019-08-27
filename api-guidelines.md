@@ -56,4 +56,22 @@ Chaque modification mineur d'une API DOIT suivre les règles d'extension:
 
 Si l'une des règles ci-dessus ne peut être respectée pour une quelconque raison, un développeur d'API **DOIT** publier une nouvelle version majeure.
 
+## Documentation
+
+### Documentation générale
+
+Une API **DOIT** faire l'objet d'une documentation sous forme de wiki contenant au moins:
+
+* Un descriptif
+* L'équipe responsable clairement identifiée
+* Lien vers les documentations Swagger
+
+Cette page wiki **DOIT** être ajoutée à l'annuaire.
+
+_La communauté de l'API est tout à fait consciente que cette solution est temporaire. A terme, nous nous attendons à avoir un service registry centralisé, probablement dans un outil d'API Management._
+
+### Documentation
+
+Une API **DOIT** exposer une documentation explicite, complète et à jour de ses endpoints et **DEVRAIT** l'exposer sous forme d'un Swagger.
+
 
