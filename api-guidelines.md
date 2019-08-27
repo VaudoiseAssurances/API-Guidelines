@@ -99,8 +99,8 @@ Bien que ces méthodes ne soient pas équivalentes à du CRUD, il est préférab
 | Méthode   | Action    | Définition |          |
 |-----------|-----------|------------|----------|
 | POST      | Non-idempotent | Créer une resource | C |
-| POST      | Nullipotent (Safe) | Retourner une/des resource(s) | R |
-| POST      | Idempotent | Modifier une ressource | U |
+| GET      | Nullipotent (Safe) | Retourner une/des resource(s) | R |
+| PUT      | Idempotent | Modifier une ressource | U |
 | DELETE      | Idempotent | Supprimer une resource | D |
 
 #### POST
