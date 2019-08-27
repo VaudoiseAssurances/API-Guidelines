@@ -303,3 +303,38 @@ Va-Impersonate: sio
 L'API **DEVRAIT** logguer le fait que l'action a été effectuée par un utilisateur A impersonant un utilisateur B.
 
 
+## Localisation
+
+La langue désirée **DEVRAIT** être définie en utilisant le header `Accept-Language`.
+
+A noter que le contenu de la payload JSON ainsi que les paramètres transmis dans l'URL **DOIVENT** être formatés selon le standard JSON.
+
+### Exemple
+
+HTTP Request
+```
+GET /contracts HTTP/1.1
+Accept-Language: fr-ch, de-ch
+```
+
+HTTP Response
+```
+HTTP/1.1 200 OK
+Content-Type: [...]
+Content-Language: fr-ch
+ 
+ 
+[...]
+```
+
+## Pagination
+
+L'accès à des listes de données **DOIT** supporter la pagination pour une meilleure expérience du côté du consommateur. Cette affirmation est vraie pour toutes les listes qui sont potentiellement plus grandes que quelques centaines d'enregistrements.
+
+Il existe deux types de techniques d'itération:
+
+* Offset/Limit-based,
+* Cursor-based.
+
+Il est important de prendre en compte la façon dont est utilisée la pagination c/o les consommateurs. Il semblerait que l'accès direct à une page spécifique est bien moins utilisé que la navigation via des liens de type _page suivante/page précédente_. De ce fait, il vaut mieux favoriser la pagination de type _cursor-based_.
+
