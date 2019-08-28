@@ -1,7 +1,7 @@
 # Vaudoise API Guidelines
 so called "Standards API"
 
-You can access our [API Standards v1.1 (french version)](api-guidelines.md).
+You can access our [API Standards v1.1 (french version)](fr/introduction.md).
 
 == Purpose
 
