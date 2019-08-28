@@ -84,7 +84,7 @@ Les APIs **DOIVENT** être designées autour des ressources, et **NE DOIVENT PAS
 
 #### Niveau de maturité
 
-Idéalement, nous visons le niveau 2 du modèle de maturité de Richardson, mais il est tout à fait possible d'utiliser le niveau 3.
+Idéalement, nous visons le niveau 2 du modèle de maturité de Richardson, mais il est tout à fait possible d'utiliser le niveau 3. Plus d'informations disponibles sur https://martinfowler.com/articles/richardsonMaturityModel.html.
 
 REST est centralisé autour des entités/ressources et l'utilisation des méthodes HTTP standards (tq. GET/POST/PUT/DELETE) en tant qu'opérations. Les URLs ne doivent contenir que des noms, et non pas des verbes.
 
