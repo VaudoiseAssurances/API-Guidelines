@@ -14,7 +14,7 @@ The goal is to allow people to give feedbacks as soon as possible and an interna
 * entities and business resources, i.e., avoid having APIs for specific use-cases,
 * a real separation between the WHAT and the HOW
 
-**The API contrat is the unique source of truth and not the implementation.** If you development langage does not support natively the generation of the documentation, then it is possible to write the documentation by hand.
+**The API contract is the unique source of truth and not the implementation.** If you development langage does not support natively the generation of the documentation, then it is possible to write the documentation by hand.
 
 The implementation of an API **MUST** always be consistent with the description of the API : this represents the contract between the API and the consumers.
 
@@ -62,17 +62,17 @@ An API **MUST** expose an explicite documentation, full and up to date of its en
 
 ### Ressources au lieu de verbe
 
-Les APIs **DOIVENT** être designées autour des ressources, et **NE DOIVENT PAS** représenter des actions. Une API **PEUT** inclure les contrôles hypermedia (HATEOAS).
+APIs **MUST** be designed around resources, and **MUST** not represent actions. An API **MAY** include hypermedia (HATEOAS).
 
-#### Niveau de maturité
+#### Maturity level
 
-Idéalement, nous visons le niveau 2 du modèle de maturité de Richardson, mais il est tout à fait possible d'utiliser le niveau 3. Plus d'informations disponibles sur https://martinfowler.com/articles/richardsonMaturityModel.html.
+Idealy, we aim for the second maturity level of Richardson, but it is possible to use the level 3. More information are available on https://martinfowler.com/articles/richardsonMaturityModel.html.
 
-REST est centralisé autour des entités/ressources et l'utilisation des méthodes HTTP standards (tq. GET/POST/PUT/DELETE) en tant qu'opérations. Les URLs ne doivent contenir que des noms, et non pas des verbes.
+REST is based around entities/resources and the use of standards HTTP methods (such as GET/POST/PUT/DELETE) as operations. URLs **MUST** have names and no verb.
 
-Par exemple, au lieu d'avoir le verbe annuler dans l'URL, il faut plutôt penser à la ressource annulation.
+For example, instead of having the verb _cancel_ in the URL, it is expected to have the resource _cancellation_.
 
-### Utilisation des verbes
+### Use of verbs
 
 Les méthodes Http standard ont une signification, elles sont à utiliser pour déterminer le type d'action à effectuer.
 
