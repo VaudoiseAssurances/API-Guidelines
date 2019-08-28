@@ -42,21 +42,21 @@ If any of these rules cannot be respected for any reason, then we **MUST** deplo
 
 ## Documentation
 
-### Documentation générale
+### General documentation
 
-Une API **DOIT** faire l'objet d'une documentation sous forme d'une page dans notre Wiki d'entreprise contenant au moins:
+An API **MUST** have a documentation in our enterprise Wiki that is a page with :
 
-* Un descriptif
-* L'équipe responsable clairement identifiée
-* Lien vers les documentations Swagger
+* a description
+* the team in charge of the API
+* a link to the swagger documentation
 
-Cette page wiki **DOIT** être ajoutée à l'annuaire.
+This wiki page **MUST** be added to our directory.
 
-_Nota Bene : La communauté de l'API est tout à fait consciente que cette solution est temporaire. A terme, nous nous attendons à avoir un service registry centralisé, probablement dans un outil d'API Management._
+_Nota Bene : Our API community of practice is aware that this solution is temporary. Eventually we are going to have a centralised directory such as an API Management._
 
 ### Documentation
 
-Une API **DOIT** exposer une documentation explicite, complète et à jour de ses endpoints et **DEVRAIT** l'exposer sous forme d'un Swagger.
+An API **MUST** expose an explicite documentation, full and up to date of its endpoints and **SHOULD** expose it as a Swagger.
 
 ## REST
 
