@@ -357,7 +357,7 @@ Les noms **DOIVENT** provenir du Glossaire métier (Internal link), et dans un d
 
 Chaque URI DOIT suivre les (Règles générales de nommage)[TODO], à part pour le `camelCase`. A la place, un tiret  `-`  **DEVRAIT** être utilisé pour délimiter les mots composés. De plus, une URI **NE DOIT PAS** terminer avec un slash  `/`.
 
-### Exemple
+### Exemples
 
 ```
 // Retourne toutes les personnes
