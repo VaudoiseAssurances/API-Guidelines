@@ -522,8 +522,4 @@ Dans les environnements non production, une API **DEVRAIT** fournir un endpoint 
   "serviceMemory": 92827648,
   "serviceThreads": 21
 }
-
 ```
-
-
-
