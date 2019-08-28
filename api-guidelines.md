@@ -62,7 +62,7 @@ Si l'une des règles ci-dessus ne peut être respectée pour une quelconque rais
 
 ### Documentation générale
 
-Une API **DOIT** faire l'objet d'une documentation sous forme de wiki contenant au moins:
+Une API **DOIT** faire l'objet d'une documentation sous forme d'une page dans notre Wiki d'entreprise contenant au moins:
 
 * Un descriptif
 * L'équipe responsable clairement identifiée
