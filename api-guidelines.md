@@ -413,7 +413,7 @@ La requêtes a été traitée avec succès.
 |201 Created | Resource créée avec succès |
 |202 Accepted | Requête acceptée mais non complétée (process asynchrone...) |
 |204 No content | Succès de la requête, réponse vide |
-|206 Partial | Résultat partiel (voir pagination) |
+|206 Partial | Résultat partiel (voir [pagination](#pagination)) |
 
 #### 4XX Client Errors
 
