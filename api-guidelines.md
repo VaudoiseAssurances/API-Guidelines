@@ -5,7 +5,7 @@ Dans le cas d'une évolution de ces standards API, il faut suivre les règles su
 * les API existantes ne doivent pas être systématiquement changées, bien que cela soit conseillé,
 * les nouvelles API doivent respecter la version courante des standards.
 
-Ce présent document utilise les termes **DOIT**, **DEVRAIT**, **PEUT** comme mots-clés pour définir le niveaux d'exigence d'une spécification telle que définit dans la RFC 2119 (version française).
+Ce présent document utilise les termes **DOIT**, **DEVRAIT**, **PEUT** comme mots-clés pour définir le niveaux d'exigence d'une spécification telle que définit dans la [RFC 2119](http://microformats.org/wiki/rfc-2119-fr) (version française).
 
 
 | Terme | Définition |
