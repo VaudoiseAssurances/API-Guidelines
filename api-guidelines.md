@@ -104,23 +104,23 @@ Bien que ces méthodes ne soient pas équivalentes à du CRUD, il est préférab
 | DELETE      | Idempotent | Supprimer une resource | D |
 
 #### POST
-* Un POST (create, dans notre cas) exécuté avec succès retourne un 201. Le header doit contenir un header Location donnant le lien vers la nouvelle entité.
-* Dans le cas d'une opération asynchrone, la réponse doit être un 202 contenant un header Location permettant de monitorer l'état de l'opération.
+* Un POST (create, dans notre cas) exécuté avec succès retourne un 201. Le header doit contenir un header `Location` donnant le lien vers la nouvelle entité.
+* Dans le cas d'une opération asynchrone, la réponse doit être un 202 contenant un header `Location` permettant de monitorer l'état de l'opération.
 
 #### GET
 
 * Un GET retournant une ressource exécutée avec succès retourne un 200.
-* Un GET retournant plusieurs ressources avec succès retourne un 200 si toutes les ressource sont présentes ou un 206 si une partie des ressources est retournée (paging, top n). Dans ce cas-là, la réponse doit contenir un header Content-Range. 
+* Un GET retournant plusieurs ressources avec succès retourne un 200 si toutes les ressource sont présentes ou un 206 si une partie des ressources est retournée (paging, top n). Dans ce cas-là, la réponse doit contenir un header `Content-Range`. 
 
 #### PUT
 
 * Un PUT (update, dans notre cas) exécutée avec succès retourne un 200 ou un 204.
-* Dans le cas d'une opération asynchrone, la réponse doit être un 202 contenant un header Location permettant de monitorer l'état de l'opération.
+* Dans le cas d'une opération asynchrone, la réponse doit être un 202 contenant un header `Location` permettant de monitorer l'état de l'opération.
 
 #### DELETE
 
 * Un DELETE exécuté avec succès retourne un 200 ou un 204.
-* Dans le cas d'une opération asynchrone, la réponse doit être un 202 contenant un header Location permettant de monitorer l'état de l'opération.
+* Dans le cas d'une opération asynchrone, la réponse doit être un 202 contenant un header `Location` permettant de monitorer l'état de l'opération.
 
 # Message
 
