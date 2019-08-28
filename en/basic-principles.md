@@ -74,32 +74,32 @@ For example, instead of having the verb _cancel_ in the URL, it is expected to h
 
 ### Use of verbs
 
-Les méthodes Http standard ont une signification, elles sont à utiliser pour déterminer le type d'action à effectuer.
+Standard HTTP methods have a meaning, they have to be used to determine the type of action to do.
 
-Bien que ces méthodes ne soient pas équivalentes à du CRUD, il est préférable dans notre cas de les utiliser comme tel à des fins de simplification et de ne garder que des créations non idempotentes.
+Although these methods are not equivalent to CRUD, it is preferable in our case to use them as such for simplification purposes and to keep only non idempotent creations.
 
-| Méthode   | Action    | Définition |          |
+| Method   | Action    | Definition |          |
 |-----------|-----------|------------|----------|
-| POST      | Non-idempotent | Créer une resource | C |
-| GET      | Nullipotent (Safe) | Retourner une/des resource(s) | R |
-| PUT      | Idempotent | Modifier une ressource | U |
-| DELETE      | Idempotent | Supprimer une resource | D |
+| POST      | Non-idempotent | Create a resource| C |
+| GET      | Nullipotent (Safe) | Get one (or many) resource(s) | R |
+| PUT      | Idempotent | Update a ressource | U |
+| DELETE      | Idempotent | Delete a resource | D |
 
 #### POST
-* Un POST (create, dans notre cas) exécuté avec succès retourne un 201. Le header doit contenir un header `Location` donnant le lien vers la nouvelle entité.
-* Dans le cas d'une opération asynchrone, la réponse doit être un 202 contenant un header `Location` permettant de monitorer l'état de l'opération.
+* A POST (create, in our case) executed with success returns a 201. The header has to contain `Location` with a link to the new entity.
+* In the case of an asynchronous operation, the response has to be 202 with an header `Location` in order to monitor the operation.
 
 #### GET
 
-* Un GET retournant une ressource exécutée avec succès retourne un 200.
-* Un GET retournant plusieurs ressources avec succès retourne un 200 si toutes les ressource sont présentes ou un 206 si une partie des ressources est retournée (paging, top n). Dans ce cas-là, la réponse doit contenir un header `Content-Range`. 
+* A successful GET returns a resource and a 200.
+* A successful GET returns multiple resources and a 200 if all resources are present or a 206 if some of the resources are returned (paging, top n). In this case, the response **MUST** contain a `Content-Range` header.
 
 #### PUT
 
-* Un PUT (update, dans notre cas) exécutée avec succès retourne un 200 ou un 204.
-* Dans le cas d'une opération asynchrone, la réponse doit être un 202 contenant un header `Location` permettant de monitorer l'état de l'opération.
+* A successful PUT (update, in our case) returns a 200 or a 204.
+* In the case of an asynchronous operation, the response **MUST** be a 202 containing a `Location` header to monitor the status of the operation.
 
 #### DELETE
 
-* Un DELETE exécuté avec succès retourne un 200 ou un 204.
-* Dans le cas d'une opération asynchrone, la réponse doit être un 202 contenant un header `Location` permettant de monitorer l'état de l'opération.
+* A successful DELETE returns a 200 or a 204.
+* In the case of an asynchronous operation, the response **MUST** be a 202 containing a `Location` header to monitor the status of the operation.
