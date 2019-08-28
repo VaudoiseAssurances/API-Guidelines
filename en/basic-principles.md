@@ -18,27 +18,27 @@ The goal is to allow people to give feedbacks as soon as possible and an interna
 
 The implementation of an API **MUST** always be consistent with the description of the API : this represents the contract between the API and the consumers.
 
-## Compatibilité
+## Compatibility
 
-### Ne pas casser la rétrocompatibilité
+### Do not break backward compatibility
 
-Les changements d'APIs dans une même version majeur **NE DOIVENT PAS** casser la rétrocompatibilité. Les APIs sont un contrat entre le fournisseur de service et les consommateurs qui ne peut pas être cassé par des décisions unilatérales.
+API updates in the same major version **MUST NOT** break backward compatibility. APIs are a contract between the consumers and the producer that cannot be broken by unilateral decisions.
 
-Il y a deux possibilités pour changer une API sans la casser:
+There are two possibilities to update an API without breaking it :
 
-* suivre les règles des extensions compatibles
-* introduire une nouvelle version d'API tout en supportant les anciennes versions.
+* follow the compatible extension rules,
+* introduce a new version of the API while supporting the old version.
 
-### Règles pour faire évoluer une API
+### Rules to extand an API
 
-Chaque modification mineure d'une API DOIT suivre les règles d'extension:
+Every minor modifications of an API **MUST** follow the extension rules :
 
-* **NE DOIT PAS** retirer de champs/propriétés,
-* **NE DOIT PAS** rendre requis des champs optionnels,
-* **NE DOIT PAS** supprimer un endpoint existant,
-* Tout ce qui est rajouté **DOIT** être optionnel.
+* **MUST NOT** remove fields/properties,
+* **MUST NOT** add mandatory fields,
+* **MUST NOT** delete an existing endpoint,
+* Everything that is added **MUST** be optional.
 
-Si l'une des règles ci-dessus ne peut être respectée pour une quelconque raison, un développeur d'API **DOIT** publier une nouvelle version majeure.
+If any of these rules cannot be respected for any reason, then we **MUST** deploy a new major version.
 
 ## Documentation
 
