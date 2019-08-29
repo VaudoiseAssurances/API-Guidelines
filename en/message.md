@@ -59,11 +59,11 @@ The API **SHOULD** be based on common representation of business data. For more 
 
 ### Format of business validations
 
-En cas d'un échec de la requête pour des raisons de validation métier, la réponse **DEVRAIT** utiliser un code HTTP 422, **DEVRAIT** avoir un Content-Type clairement défini
+If the requests fails because of business validations, the response **SHOULD** use a 422 HTTP code, **SHOULD** have the following `Content-Type`
 ```
 Content-type: application/vnd.va.validation+json
 ```
-et **DEVRAIT** retourner une payload avec
+and **SHOULD** return this kind of payload
 ```javascript
 {
     "validations": [      
@@ -102,15 +102,15 @@ et **DEVRAIT** retourner une payload avec
 }
 ```
 
-## Erreurs métiers
+## Business errors
 
-### Format des erreurs métiers
+### Format of business errors
 
-Lors de l'échec d'une opération métier, les statuts **DOIVENT** être de l'ordre de 4XX, le `Content-Type` **DEVRAIT** être 
+When a business operations fails, statuses **MUST** be in the 4XX, `Content-Type` **SHOULD** be 
 ```
 Content-type: application/vnd.va.error+json
 ```
-et le contenu de la payload **DEVRAIT** être
+and the payload **SHOULD** look like
 ```javascript
 {
     // Technical field
@@ -126,12 +126,11 @@ et le contenu de la payload **DEVRAIT** être
 
 ## Exception
 
-## Format des exceptions
+## Exception format
 
-Sur l'environnement de production, une exception logicielle **DOIT** retourner un code HTTP 500 et **NE DOIT PAS** retourner de stack trace.
+On production environments, a software exception **MUST** return an HTTP status code 500 and **MUST NOT** return a stack trace.
 
-Sur les environnements non productifs, la payload retournée **DEVRAIT** ressembler à
-
+On non-production environments, the payload **SHOULD** look like
 ```javascript
 Content-type: application/vnd.va.exception+json
 {
