@@ -1,6 +1,6 @@
 # Principes de base
 
-Cette section couvre les principes de base. 
+Cette section couvre les principes de base.
 
 ## API First
 
@@ -54,7 +54,7 @@ Cette page wiki **DOIT** être ajoutée à l'annuaire.
 
 _Nota Bene : La communauté de l'API est tout à fait consciente que cette solution est temporaire. A terme, nous nous attendons à avoir un service registry centralisé, probablement dans un outil d'API Management._
 
-### Documentation
+### Documentation swagger
 
 Une API **DOIT** exposer une documentation explicite, complète et à jour de ses endpoints et **DEVRAIT** l'exposer sous forme d'un Swagger.
 
@@ -66,7 +66,7 @@ Les APIs **DOIVENT** être designées autour des ressources, et **NE DOIVENT PAS
 
 #### Niveau de maturité
 
-Idéalement, nous visons le niveau 2 du modèle de maturité de Richardson, mais il est tout à fait possible d'utiliser le niveau 3. Plus d'informations disponibles sur https://martinfowler.com/articles/richardsonMaturityModel.html.
+Idéalement, nous visons le niveau 2 du modèle de maturité de Richardson, mais il est tout à fait possible d'utiliser le niveau 3 ([Plus d'informations](https://martinfowler.com/articles/richardsonMaturityModel.html)).
 
 REST est centralisé autour des entités/ressources et l'utilisation des méthodes HTTP standards (tq. GET/POST/PUT/DELETE) en tant qu'opérations. Les URLs ne doivent contenir que des noms, et non pas des verbes.
 
@@ -86,13 +86,14 @@ Bien que ces méthodes ne soient pas équivalentes à du CRUD, il est préférab
 | DELETE      | Idempotent | Supprimer une resource | D |
 
 #### POST
+
 * Un POST (create, dans notre cas) exécuté avec succès retourne un 201. Le header doit contenir un header `Location` donnant le lien vers la nouvelle entité.
 * Dans le cas d'une opération asynchrone, la réponse doit être un 202 contenant un header `Location` permettant de monitorer l'état de l'opération.
 
 #### GET
 
 * Un GET retournant une ressource exécutée avec succès retourne un 200.
-* Un GET retournant plusieurs ressources avec succès retourne un 200 si toutes les ressource sont présentes ou un 206 si une partie des ressources est retournée (paging, top n). Dans ce cas-là, la réponse doit contenir un header `Content-Range`. 
+* Un GET retournant plusieurs ressources avec succès retourne un 200 si toutes les ressource sont présentes ou un 206 si une partie des ressources est retournée (paging, top n). Dans ce cas-là, la réponse doit contenir un header `Content-Range`.
 
 #### PUT
 

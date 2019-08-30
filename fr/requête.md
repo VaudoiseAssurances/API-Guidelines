@@ -6,7 +6,7 @@ Cette section couvre les standards liés aux requêtes (i.e. filtre, pagination,
 
 Lors d'une opération conduite de manière asynchrone par le serveur, celui-ci **DOIT** retourner un code HTTP 202 avec un header Location désignant l'emplacement de l'URL de suivi de l'opération. Cet URL pointera sur une ressource de type operations.
 
-```
+```http
 Location: https://VaHappyHi:8081/v2/operations/8156ab4e
 ```
 
@@ -20,12 +20,11 @@ La ressource `operation` **DEVRAIT** contenir l'état actuel de l'opération (`n
 
 L'implémentation de l'impersonation **NE DEVRAIT PAS** être implémentée uniquement au niveau du client, mais **DEVRAIT** être au niveau de l'API. L'impersonation **DEVRAIT** se faire au moyen d'un header custom:
 
-```
+```http
 Va-Impersonate: sio
 ```
 
 L'API **DEVRAIT** logguer le fait que l'action a été effectuée par un utilisateur A impersonant un utilisateur B.
-
 
 ## Localisation
 
@@ -36,18 +35,19 @@ A noter que le contenu de la payload JSON ainsi que les paramètres transmis dan
 ### Exemple
 
 HTTP Request
-```
+
+```http
 GET /contracts HTTP/1.1
 Accept-Language: fr-ch, de-ch
 ```
 
 HTTP Response
-```
+
+```http
 HTTP/1.1 200 OK
 Content-Type: [...]
 Content-Language: fr-ch
- 
- 
+
 [...]
 ```
 

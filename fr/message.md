@@ -17,7 +17,7 @@ Content-type: application/x.va.validation+json
 {
     // Pas d'ambiguité
     "titre":"baron"
-      
+
     // Risque d'erreur de mapping, risque de dérive en maintenance évolutive
     "titre": 4
 }
@@ -32,10 +32,10 @@ Content-type: application/x.va.validation+json
 {
     "myDateTime": "1997-09-02T19:20:30.45+01:00", // Par défaut, de la data
     "myDateTimeDisplay": "Lundi 2 septembre à 19heures 20 minutes 30 secondes 45 centièmes, et dans le fuseau horaire GM+1", // Expliciter lorsqu'il s'agit de display. C'est assez long ?
- 
+
     "myDate": "1985-08-09", // Par défaut, de la data
     "myDateDisplay": "Vendredi 9 août 1985", // Expliciter lorsqu'il s'agit de display et de l'anniversaire à JFR
-      
+
     "gender":"M",
     "genderDisplay":"Male"
 }
@@ -47,7 +47,7 @@ Le nom des propriétés booléennes **POURRAIT** être préfixé par `Is` ou `Ha
 
 ### Identifiant
 
-Pour des raisons de sécurité, les identifiants techniques exposés **DEVRAIENT** être non-séquentiels et non-déterministes, par exemple, `UUID` v4 [RFC-4122](https://tools.ietf.org/html/rfc4122). 
+Pour des raisons de sécurité, les identifiants techniques exposés **DEVRAIENT** être non-séquentiels et non-déterministes, par exemple, `UUID` v4 [RFC-4122](https://tools.ietf.org/html/rfc4122).
 
 ### Représentation commune des données business
 
@@ -58,36 +58,39 @@ L'API **DEVRAIT** se baser sur la représentation commune des données business.
 ### Format des validations métiers
 
 En cas d'un échec de la requête pour des raisons de validation métier, la réponse **DEVRAIT** utiliser un code HTTP 422, **DEVRAIT** avoir un Content-Type clairement défini
-```
+
+```http
 Content-type: application/vnd.va.validation+json
 ```
+
 et **DEVRAIT** retourner une payload avec
+
 ```javascript
 {
-    "validations": [      
+    "validations": [
         {
             // Field translated according the i18n/l10n and displayable to the user
             "display": "The name is required",
- 
+
             // ValidationCode used to defined the label
             "code":"validationRequired",
- 
+
             // Concerned field(s)
             "fields":["firstName"],
- 
+
             // Variable data that are in the message (Validation property)
             "valParams":{}
         },
         {
             // Field translated according the i18n/l10n and displayable to the user
             "display": "Le npa devrait comporter au moins 42 caractères",
- 
+
             // ValidationCode used to defined the label
             "code":"validationMinLength",
- 
+
             // Concerned field(s)
             "fields":["address[0].npa"],
- 
+
             // Variable data that are in the message (Validation property)
             "valParams":{
                 "min": 42
@@ -104,19 +107,22 @@ et **DEVRAIT** retourner une payload avec
 
 ### Format des erreurs métiers
 
-Lors de l'échec d'une opération métier, les statuts **DOIVENT** être de l'ordre de 4XX, le `Content-Type` **DEVRAIT** être 
-```
+Lors de l'échec d'une opération métier, les statuts **DOIVENT** être de l'ordre de 4XX, le `Content-Type` **DEVRAIT** être
+
+```http
 Content-type: application/vnd.va.error+json
 ```
+
 et le contenu de la payload **DEVRAIT** être
+
 ```javascript
 {
     // Technical field
     "message": "This message will not be displayed to the user",
-  
+
     // i18n/l10n field which can be displayed to the user
     "display": "If this error append again, please call your mama!",
-      
+
     // Standard error code used by the client to define a specific label to display
     "code":"uniqueErrorCodeForDoesNotWork"
 }
@@ -148,4 +154,4 @@ Les payloads **DEVRAIENT** être retournées au format application/json et **DOI
 
 ### JSON'ception
 
-Les propriétés contenues dans une payload JSON **NE DOIVENT PAS** contenir elles-mêmes du json ou du xml. 
+Les propriétés contenues dans une payload JSON **NE DOIVENT PAS** contenir elles-mêmes du json ou du xml.
