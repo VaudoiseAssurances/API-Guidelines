@@ -16,7 +16,7 @@ Les données **DEVRAIENT** être représentées sous forme d'énumérations plut
 Content-type: application/x.va.validation+json
 {
     // Pas d'ambiguité
-    "titre":"baron"
+    "titre":"baron",
 
     // Risque d'erreur de mapping, risque de dérive en maintenance évolutive
     "titre": 4
