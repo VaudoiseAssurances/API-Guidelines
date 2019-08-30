@@ -12,7 +12,7 @@ Les données **DEVRAIENT** être encodées en UTF-8.
 
 Les données **DEVRAIENT** être représentées sous forme d'énumérations plutôt que sous forme de codes cryptiques. De plus, les positions d'énumérations **DEVRAIENT** être sérialisées sous forme de chaîne de caractères en `camelCase` afin d'éviter les erreurs de mapping.
 
-```javascript
+```json
 Content-type: application/x.va.validation+json
 {
     // Pas d'ambiguité
@@ -27,7 +27,7 @@ Content-type: application/x.va.validation+json
 
 Lorsqu'une propriété peut être exprimée soit sous forme de données, soit sous forme d'affichage, l'API **DEVRAIT** l'énoncer clairement.
 
-```javascript
+```json
 Content-type: application/x.va.validation+json
 {
     "myDateTime": "1997-09-02T19:20:30.45+01:00", // Par défaut, de la data
@@ -65,7 +65,7 @@ Content-type: application/vnd.va.validation+json
 
 et **DEVRAIT** retourner une payload avec
 
-```javascript
+```json
 {
     "validations": [
         {
@@ -115,7 +115,7 @@ Content-type: application/vnd.va.error+json
 
 et le contenu de la payload **DEVRAIT** être
 
-```javascript
+```json
 {
     // Technical field
     "message": "This message will not be displayed to the user",
@@ -136,7 +136,7 @@ Sur l'environnement de production, une exception logicielle **DOIT** retourner u
 
 Sur les environnements non productifs, la payload retournée **DEVRAIT** ressembler à
 
-```javascript
+```json
 Content-type: application/vnd.va.exception+json
 {
     // Champs techniques habituels
