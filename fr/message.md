@@ -30,11 +30,15 @@ Lorsqu'une propriété peut être exprimée soit sous forme de données, soit so
 ```javascript
 Content-type: application/x.va.validation+json
 {
-    "myDateTime": "1997-09-02T19:20:30.45+01:00", // Par défaut, de la data
-    "myDateTimeDisplay": "Lundi 2 septembre à 19heures 20 minutes 30 secondes 45 centièmes, et dans le fuseau horaire GM+1", // Expliciter lorsqu'il s'agit de display. C'est assez long ?
+    // Par défaut, de la data
+    "myDateTime": "1997-09-02T19:20:30.45+01:00", 
+    // Expliciter lorsqu'il s'agit de display. C'est assez long ?
+    "myDateTimeDisplay": "Lundi 2 septembre à 19heures 20 minutes 30 secondes 45 centièmes, et dans le fuseau horaire GM+1", 
  
-    "myDate": "1985-08-09", // Par défaut, de la data
-    "myDateDisplay": "Vendredi 9 août 1985", // Expliciter lorsqu'il s'agit de display et de l'anniversaire à JFR
+    // Par défaut, de la data
+    "myDate": "1985-08-09", 
+    // Expliciter lorsqu'il s'agit de display et de l'anniversaire à JFR
+    "myDateDisplay": "Vendredi 9 août 1985",
       
     "gender":"M",
     "genderDisplay":"Male"
