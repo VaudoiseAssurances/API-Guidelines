@@ -1,3 +1,5 @@
+![Build](https://api.travis-ci.com/VaudoiseAssurances/API-Guidelines.svg?branch=master)
+
 # Vaudoise API Guidelines
 so called "Standards API"
 
