@@ -9,7 +9,8 @@ In 2016 we discovered that consuming APIs at La Vaudoise was quite hard. Everybo
 
 ## Usage
 
-If you speak french (or want to learn), you can access our [API Standards v1.1 (french version)](fr/introduction.md). A [pdf is also available](https://vaudoiseassurances.github.io/API-Guidelines/api-guidelines.pdf)].
+If you speak french (or want to learn), you can access our [API Standards v1.1 (french version)](fr/introduction.md). A [pdf is also available](https://vaudoiseassurances.github.io/API-Guidelines/api-guidelines.pdf).
+
 If you speak english, well... you have to wait. We did not translate them, yet.
 
 ## Contact
