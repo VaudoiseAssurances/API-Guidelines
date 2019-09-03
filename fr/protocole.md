@@ -9,6 +9,7 @@ Cette section traite des problématiques au niveau du protocole et de ses standa
 Toutes les API **DOIVENT** supporter le protocole HTTP et sa sémantique.
 
 ### Codes HTTP
+
 Quelques règles pour l'utilisation des codes HTTP, le développeur d'API
 
 * **NE DOIT PAS** inventer des nouveaux codes HTTP ou dériver de leur sens originel,
