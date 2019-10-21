@@ -6,17 +6,17 @@ This section covers the basic principles.
 
 ### Design API before implementation
 
-The signature of the API -- also called interface or contract -- **MUST** be done before the implementation (OpenAPI specification, Stub, etc).
+The signature of the API -- also called interface or contract -- **MUST** be done before implementation (OpenAPI specification, Stub, etc).
 
-The goal is to allow people to give feedbacks as soon as possible and an internal discipline that focuses on :
+The goal is to allow stakeholders to give early feedback and to show commitment with focus on:
 
-* the knowledge of the functional domain,
+* knowledge of the functional domain,
 * entities and business resources, i.e., avoid having APIs for specific use-cases,
 * a real separation between the WHAT and the HOW
 
-**The API contract is the unique source of truth and not the implementation.** If you development langage does not support natively the generation of the documentation, then it is possible to write the documentation by hand.
+**The API contract is the unique source of truth, not the implementation.** If your development language does not support native  generation of documentation, then it is possible to write the documentation by hand.
 
-The implementation of an API **MUST** always be consistent with the description of the API : this represents the contract between the API and the consumers.
+The implementation of an API **MUST** always be consistent with its description : it represents the contract between the API and the consumers.
 
 ## Compatibility
 
@@ -24,14 +24,14 @@ The implementation of an API **MUST** always be consistent with the description 
 
 API updates in the same major version **MUST NOT** break backward compatibility. APIs are a contract between the consumers and the producer that cannot be broken by unilateral decisions.
 
-There are two possibilities to update an API without breaking it :
+There are two ways to update an API without breaking it:
 
 * follow the compatible extension rules,
 * introduce a new version of the API while supporting the old version.
 
 ### Rules to extand an API
 
-Every minor modifications of an API **MUST** follow the extension rules :
+Every minor modifications of an API **MUST** follow the extension rules:
 
 * **MUST NOT** remove fields/properties,
 * **MUST NOT** add mandatory fields,
@@ -44,7 +44,7 @@ If any of these rules cannot be respected for any reason, then we **MUST** deplo
 
 ### General documentation
 
-An API **MUST** have a documentation in our enterprise Wiki that is a page with :
+Each API **MUST** be documented in our company's Wiki on a page with:
 
 * a description
 * the team in charge of the API
@@ -52,17 +52,17 @@ An API **MUST** have a documentation in our enterprise Wiki that is a page with 
 
 This wiki page **MUST** be added to our directory.
 
-_Nota Bene : Our API community of practice is aware that this solution is temporary. Eventually we are going to have a centralised directory such as an API Management._
+_Nota Bene : Our API community of practice is aware that this solution is temporary. In the future, we will have a centralised directory such as an API Management._
 
 ### Documentation
 
-An API **MUST** expose an explicite documentation, full and up to date of its endpoints and **SHOULD** expose it as a Swagger.
+An API **MUST** expose an explicit documentation, full and up to date of its endpoints and **SHOULD** expose it as a Swagger.
 
 ## REST
 
-### Ressources au lieu de verbe
+### Ressources instead of Verbs
 
-APIs **MUST** be designed around resources, and **MUST** not represent actions. An API **MAY** include hypermedia (HATEOAS).
+APIs **MUST** be designed around resources and **MUST** not represent actions. An API **MAY** include hypermedia (HATEOAS).
 
 #### Maturity level
 
@@ -74,7 +74,7 @@ For example, instead of having the verb _cancel_ in the URL, it is expected to h
 
 ### Use of verbs
 
-Standard HTTP methods have a meaning, they have to be used to determine the type of action to do.
+Standard HTTP methods have a meaning, they have to be used to specify the type of action to do.
 
 Although these methods are not equivalent to CRUD, it is preferable in our case to use them as such for simplification purposes and to keep only non idempotent creations.
 
