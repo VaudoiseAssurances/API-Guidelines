@@ -22,23 +22,23 @@ The implementation of an API **MUST** always be consistent with its description 
 
 ### Do not break backward compatibility
 
-API updates in the same major version **MUST NOT** break backward compatibility. APIs are a contract between the consumers and the producer that cannot be broken by unilateral decisions.
+API updates in the same major version **MUST NOT** break backward compatibility. An API is a contract between the consumers and the producer which cannot be broken by unilateral decisions.
 
 There are two ways to update an API without breaking it:
 
 * follow the compatible extension rules,
-* introduce a new version of the API while supporting the old version.
+* introduce a new version of the API while maintaining the previous versions.
 
 ### Rules to extand an API
 
-Every minor modifications of an API **MUST** follow the extension rules:
+Each new minor version of an API **MUST** follow these extension rules:
 
 * **MUST NOT** remove fields/properties,
-* **MUST NOT** add mandatory fields,
+* **MUST NOT** make mandatory fields that were initially described as optional,
 * **MUST NOT** delete an existing endpoint,
-* Everything that is added **MUST** be optional.
+* Every new addition to a minor version **MUST** be optional.
 
-If any of these rules cannot be respected for any reason, then we **MUST** deploy a new major version.
+If, for any reason, these rules cannot be followed, then a new major version **MUST** be deployed.
 
 ## Documentation
 
