@@ -8,13 +8,13 @@ This section covers the basic principles.
 
 The signature of the API -- also called interface or contract -- **MUST** be done before implementation (OpenAPI specification, Stub, etc).
 
-The goal is to allow stakeholders to give early feedback and to show commitment with focus on:
+The goal is to allow stakeholders to give early feedback and to show self-discipline by focusing on:
 
-* knowledge of the functional domain,
-* entities and business resources, i.e., avoid having APIs for specific use-cases,
-* a real separation between the WHAT and the HOW
+* knowledge of the functional domain and the common requirements,
+* entities and business resources, i.e. avoid having APIs for specific use-cases,
+* a clear divide between the WHAT and the HOW
 
-**The API contract is the unique source of truth, not the implementation.** If your development language does not support native  generation of documentation, then it is possible to write the documentation by hand.
+**The API contract is the unique source of truth, not the implementation.** If your development language does not support automatic creation of documentation, you **SHOULD** write the documentation manually.
 
 The implementation of an API **MUST** always be consistent with its description : it represents the contract between the API and the consumers.
 
