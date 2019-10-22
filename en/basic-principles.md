@@ -44,39 +44,39 @@ If, for any reason, these rules cannot be followed, then a new major version **M
 
 ### General documentation
 
-Each API **MUST** be documented in our company's Wiki on a page with:
+An API **MUST** be documented in a Wiki and **MUST** contain at least the following:
 
-* a description
+* a full description
 * the team in charge of the API
 * a link to the swagger documentation
 
-This wiki page **MUST** be added to our directory.
+This Wiki page **MUST** be added to our internal directory.
 
 _Nota Bene : Our API community of practice is aware that this solution is temporary. In the future, we will have a centralised directory such as an API Management._
 
 ### Documentation
 
-An API **MUST** expose an explicit documentation, full and up to date of its endpoints and **SHOULD** expose it as a Swagger.
+An API **MUST** provide a full, explicit and up-to-date documentation of its endpoints and **SHOULD** expose it as a Swagger.
 
 ## REST
 
-### Ressources instead of Verbs
+### Resources instead of Verbs
 
 APIs **MUST** be designed around resources and **MUST** not represent actions. An API **MAY** include hypermedia (HATEOAS).
 
 #### Maturity level
 
-Idealy, we aim for the second maturity level of Richardson, but it is possible to use the level 3. More information are available on https://martinfowler.com/articles/richardsonMaturityModel.html.
+Ideally, we are aiming for Richardson's second maturity level, however it is possible to use level 3. Further information is available on https://martinfowler.com/articles/richardsonMaturityModel.html.
 
-REST is based around entities/resources and the use of standards HTTP methods (such as GET/POST/PUT/DELETE) as operations. URLs **MUST** have names and no verb.
+REST is based on entities/resources and usage of standard HTTP methods (such as GET/POST/PUT/DELETE) as operations. URLs **MUST** contain names and no verb.
 
-For example, instead of having the verb _cancel_ in the URL, it is expected to have the resource _cancellation_.
+For example, instead of having the verb _cancel_ in the URL, it is preferrable to use the resource _cancellation_.
 
 ### Use of verbs
 
-Standard HTTP methods have a meaning, they have to be used to specify the type of action to do.
+Standard HTTP methods are not meaningless: they **MUST** be used to specify the type of action required.
 
-Although these methods are not equivalent to CRUD, it is preferable in our case to use them as such for simplification purposes and to keep only non idempotent creations.
+Although these methods are not equivalent to CRUD, it is preferable, in our case, to use them as they are for simplification purposes and to keep only non idempotent creations.
 
 | Method   | Action    | Definition |          |
 |-----------|-----------|------------|----------|
@@ -86,8 +86,8 @@ Although these methods are not equivalent to CRUD, it is preferable in our case 
 | DELETE      | Idempotent | Delete a resource | D |
 
 #### POST
-* A POST (create, in our case) executed with success returns a 201. The header has to contain `Location` with a link to the new entity.
-* In the case of an asynchronous operation, the response has to be 202 with an header `Location` in order to monitor the operation.
+* A POST (create, in our case) successfully executed will return a 201. The header **MUST** contain `Location` with a link to the newly created entity.
+* Asynchronous operations **MUST** return a 202 containing a header `Location` in order to monitor the operation.
 
 #### GET
 
@@ -97,9 +97,9 @@ Although these methods are not equivalent to CRUD, it is preferable in our case 
 #### PUT
 
 * A successful PUT (update, in our case) returns a 200 or a 204.
-* In the case of an asynchronous operation, the response **MUST** be a 202 containing a `Location` header to monitor the status of the operation.
+* Asynchronous operations **MUST** return a 202 containing a `Location` header to monitor the status of the operation.
 
 #### DELETE
 
 * A successful DELETE returns a 200 or a 204.
-* In the case of an asynchronous operation, the response **MUST** be a 202 containing a `Location` header to monitor the status of the operation.
+* Asynchronous operations **MUST** return a 202 containing a `Location` header to monitor the status of the operation.
