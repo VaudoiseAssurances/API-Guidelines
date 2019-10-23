@@ -14,7 +14,7 @@ The goal is to allow people to give feedbacks as soon as possible and an interna
 * entities and business resources, i.e., avoid having APIs for specific use-cases,
 * a real separation between the WHAT and the HOW
 
-**The API contract is the unique source of truth and not the implementation.** If you development langage does not support natively the generation of the documentation, then it is possible to write the documentation by hand.
+**The API contract is the unique source of truth and not the implementation.** If your development language does not support natively documentation generation, then it is possible to handwrite it.
 
 The implementation of an API **MUST** always be consistent with the description of the API : this represents the contract between the API and the consumers.
 
