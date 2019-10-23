@@ -12,11 +12,11 @@ If more environments are required, an API developer **SHOULD** follow existing D
 
 ### Monitoring API consumption
 
-The team in charge of an API running on production environment **SHOULD** ensure it is being monitored.
+The team in charge of an API running in a production environment **SHOULD** ensure it is being monitored.
 
 ### Health check
 
-An API **SHOULD** have an endpoing to check its health status
+An API **SHOULD** expose an endpoint to check its health status
 ```javascript
 {
   "name": "Va.Api.Business.MyAwesomeProduct",
@@ -33,12 +33,12 @@ An API **SHOULD** have an endpoing to check its health status
   }
 }
 ```
-Furthermore, continous integration tools **COULD** use it to confirm that everything is running as expected after a successful deployment.
+Furthermore, continous integration tools **COULD** use the healthcheck endpoint to confirm that the API is running correctly.
 
 
 ### Dependencies
 
-In non production environments, an API **SHOULD** expose an endpoint to list Vaudoise library dependencies being used.
+In non-production environments, an API **SHOULD** expose an endpoint to list Vaudoise library dependencies being used.
 
 ```javascript
 {
@@ -64,7 +64,7 @@ In non production environments, an API **SHOULD** expose an endpoint to list Vau
 
 ### Hosting
 
-In non production environments, an API **SHOULD** expose an endpoint to give basic information about the hosting server.
+In non-production environments, an API **SHOULD** expose an endpoint to give basic information about the hosting server.
 ```javascript
 {
   "machineDomain": "VAUDOISE",
