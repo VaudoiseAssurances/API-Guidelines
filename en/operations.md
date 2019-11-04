@@ -33,6 +33,7 @@ An API **SHOULD** expose an endpoint to check its health status
   }
 }
 ```
+
 Furthermore, continous integration tools **COULD** use the healthcheck endpoint to confirm that the API is running correctly.
 
 
