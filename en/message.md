@@ -121,6 +121,7 @@ and the payload **SHOULD** be similar to
     "display": "If this error occurs again, please call your mama!",
       
     // Standard error code used client-side to define a specific label to display
+
     "code":"uniqueErrorCodeForDoesNotWork"
 }
 ```
