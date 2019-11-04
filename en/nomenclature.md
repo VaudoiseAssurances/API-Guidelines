@@ -1,48 +1,47 @@
 # Nomenclature
 
-Cette section couvre les standards liés aux nomenclatures des ressources, URI, etc.
+This section covers standards linked to naming of resources, URIs, ...
 
-## Règles générales
+## Global rules
 
-### Règles générales de nommage
+### Naming conventions
 
-Le développement d'API **DOIT** se faire en anglais, **NE DOIT PAS** contenir d'acronyme et **DOIT** utiliser le `camelCase` (sauf indication contraire).
+APIs **MUST** be developed in english, **MUST NOT** contain acronyms and **MUST** use 'camelCase' convention (unless otherwise specified).
 
-### Lexique
+### Glossary
 
-Les noms **DOIVENT** provenir du Glossaire métier (Internal link), et dans un deuxième temps, se baser sur le référentiel de l'AFA (Specific Insurance Link).
-
+Field names **MUST** come from our business glossary (internal link), or be based on AFA's glossary (Specific Insurance Link).
 
 ## URI
 
-Chaque URI DOIT suivre les [Règles générales de nommage](#règles-générales-de-nommage), à part pour le `camelCase`. A la place, un tiret  `-`  **DEVRAIT** être utilisé pour délimiter les mots composés. De plus, une URI **NE DOIT PAS** terminer avec un slash  `/`.
+Each URI **MUST** follow the [Standard naming conventions](#naming-conventions), except for 'camelCase'. Instead, a hyphen `-` **SHOULD** be used for compound words. Furthermore a URI **MUST NOT** end with a slash `/`.
 
-### Exemples
+### Examples
 
 ```
-// Retourne toutes les personnes
+// Returns all people
 GET https://MyHappyApi:8081/v2/people
-// Retourne la personne d8a0f1ed
+// Returns person d8a0f1ed
 GET https://MyHappyApi:8081/v2/people/d8a0f1ed
-  
-// Retourne la liste des sous resources home in one de la personne d8a0f1ed
+
+// Returns a list of children resources 'home-in-one' for person d8a0f1ed
 GET https://MyHappyApi:8081/v2/people/d8a0f1ed/home-in-one
-// Retourne la sous resource home in one 587d038d de la personne d8a0f1ed
+/// Returns the child resource 'home-in-one' 587d038d for person d8a0f1ed
 GET https://MyHappyApi:8081/v2/people/d8a0f1ed/home-in-one/587d038d
   
-// Retourne la configuration actuelle
+// Returns current config
 GET https://MyHappyApi:8081/v2/configuration
-// Retourne la configuration de la personne d8a0f1ed
+// Returns config for person d8a0f1ed
 GET https://MyHappyApi:8081/v2/people/d8a0f1ed/configuration
 ```
 
 ## Versioning
 
-La version de l'API **DEVRAIT** être spécifiée dans le segment d'url suivant le root du serveur et **DOIT** représenter le premier digit – _majeur_ – de la version sémantique.
+The version of the API **SHOULD** be specified right after the server root segment and **MUST** match the first - _major_ - digit from the semantic version.
 ```
 https://MyHappyApi:8081/v2/...
 ```
-De plus, sur les environnements de développement non-productif, la dernière version **POURRAIT** être accessible par le segment latest, i.e., 
+Furthermore for non production environments, the latest version **COULD ** be exposed through a _latest_ segment, i.e.
 ```
 https://MyHappyApi:8081/latest/...
 ```
