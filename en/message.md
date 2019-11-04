@@ -1,6 +1,6 @@
 # Message
 
-This section covers governance about messages format.
+This section covers governance about the structure of messages.
 
 ## Data and description
 
@@ -8,9 +8,9 @@ This section covers governance about messages format.
 
 Data **SHOULD** be encoded in UTF-8.
 
-### Enum
+### Enums
 
-Data **SHOULD** be represented as enumerations rather than as cryptic codes. In addition, enumeration positions **SHOULD** be serialized as a `camelCase` character to avoid mapping errors.
+Data **SHOULD** be displayed as enumerations rather than cryptic codes. Also, enumeration positions **SHOULD** be serialized as `camelCase` characters to avoid mapping errors.
 
 ```javascript
 Content-type: application/x.va.validation+json
@@ -25,13 +25,14 @@ Content-type: application/x.va.validation+json
 
 ### Data and display
 
-When a property can be expressed either as a data or as a display, the API **SHOULD** state it clearly.
+When a property can be conveyed either as raw data or as data ready to be displayed, the API **SHOULD** state it clearly.
 
 ```javascript
 Content-type: application/x.va.validation+json
 {
     // By default, it is data
     "myDateTime": "1997-09-02T19:20:30.45+01:00", 
+
     // Is it long enough ? Explain when it is a displayable property
     "myDateTimeDisplay": "Monday 2 September at 7pm 20mn 30sec",
  
@@ -45,21 +46,21 @@ Content-type: application/x.va.validation+json
 
 ### Booleans
 
-The booleans properties name **MAY** be prefixed by `Is` or `Has` in order to make it clearer.
+Booleans properties name **MAY** be prefixed by `is` or `has` in order to make it intuitive.
 
 ### Identifiers
 
 For security reasons, technical identifiers **SHOULD** be non-sequential and non-deterministic, e.g., `UUID` v4 [RFC-4122](https://tools.ietf.org/html/rfc4122). 
 
-### Common representation of business data
+### Identical representation of business data
 
-The API **SHOULD** be based on common representation of business data. For more information, have a look at our Représentation communes des données business (Internal link).
+The API **SHOULD** be based on identical representation of business data. For more information, have a look at our Représentation communes des données business (Internal link).
 
 ## Business validations
 
 ### Format of business validations
 
-If the requests fails because of business validations, the response **SHOULD** use a 422 HTTP code, **SHOULD** have the following `Content-Type`
+When a request fails because of business validations, it **SHOULD** respond a 422 HTTP code, **SHOULD** have the following `Content-Type`
 ```
 Content-type: application/vnd.va.validation+json
 ```
@@ -68,29 +69,29 @@ and **SHOULD** return this kind of payload
 {
     "validations": [      
         {
-            // Field translated according the i18n/l10n and displayable to the user
+            // Field translated according the i18n/l10n and visible to the user
             "display": "The name is required",
  
-            // ValidationCode used to defined the label
+            // ValidationCode used to configure the label
             "code":"validationRequired",
  
-            // Concerned field(s)
+            // Related field(s)
             "fields":["firstName"],
  
-            // Variable data that are in the message (Validation property)
+            // Variable value constraint (Validation property)
             "valParams":{}
         },
         {
-            // Field translated according the i18n/l10n and displayable to the user
+            // Field translated according the i18n/l10n and visible to the user
             "display": "Le npa devrait comporter au moins 42 caractères",
  
-            // ValidationCode used to defined the label
+            // ValidationCode used to configure the label
             "code":"validationMinLength",
  
-            // Concerned field(s)
+            // Related field(s)
             "fields":["address[0].npa"],
  
-            // Variable data that are in the message (Validation property)
+            // Variable value constraint (Validation property)
             "valParams":{
                 "min": 42
             }
@@ -104,37 +105,37 @@ and **SHOULD** return this kind of payload
 
 ## Business errors
 
-### Format of business errors
+### Structure of business errors
 
-When a business operations fails, statuses **MUST** be in the 4XX, `Content-Type` **SHOULD** be 
+When a business operation fails, the response status **MUST** be in the range of 4XX, `Content-Type` **SHOULD** be 
 ```
 Content-type: application/vnd.va.error+json
 ```
-and the payload **SHOULD** look like
+and the payload **SHOULD** be similar to
 ```javascript
 {
     // Technical field
     "message": "This message will not be displayed to the user",
   
     // i18n/l10n field which can be displayed to the user
-    "display": "If this error append again, please call your mama!",
+    "display": "If this error occurs again, please call your mama!",
       
-    // Standard error code used by the client to define a specific label to display
+    // Standard error code used client-side to define a specific label to display
     "code":"uniqueErrorCodeForDoesNotWork"
 }
 ```
 
 ## Exception
 
-## Exception format
+## Exception structure
 
-On production environments, a software exception **MUST** return an HTTP status code 500 and **MUST NOT** return a stack trace.
+On production environments, software exceptions **MUST** return an HTTP status code 500 and **MUST NOT** return a stack trace.
 
-On non-production environments, the payload **SHOULD** look like
+On non-production environments, payloads **SHOULD** be similar to
 ```javascript
 Content-type: application/vnd.va.exception+json
 {
-    // Champs techniques habituels
+    // Usual technical fields
     "message": "object not set to an instance",
     "stackTrace": "...",
     "innerException": {...}
@@ -145,8 +146,8 @@ Content-type: application/vnd.va.exception+json
 
 ### Format - content negociation
 
-Payloads **SHOULD** be returned in the format `application/json` and **MUST** comply with the conventions of this format (`camelCase`, etc). A webservice **MAY** process other formats (such as xml, yml) via the standard header `Accept`.
+Payloads **SHOULD** be returned in the `application/json` format and **MUST** comply with its conventions (`camelCase`, etc). A webservice **MAY** process other formats (such as xml, yml) via the standard `Accept` header.
 
 ### JSON'ception
 
-Properties contained in a JSON **MUST NOT** contain json or xml themselves.
+Properties contained in a JSON **MUST NOT** contain JSON or XML themselves.
