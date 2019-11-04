@@ -1,24 +1,23 @@
-# Exploitation
+# Operations
 
-Cette section couvre les standards liés à l'exploitation.
+This section covers standards linked to operations.
 
-## Environnements
+## Environments
 
-Une API déployée en production **DOIT** systématiquement être déployé en amont sur un environnement de qualité assurance (autrement nommé UAT).
+An API **MUST** be deployed to a QA (also called UAT) environment before being pushed to production.
 
-S'il est nécessaire d'avoir d'autres environnements, un développeur d'API **DEVRAIT** se baser sur les DNS Names Convention (Internal Link) existantes.
+If more environments are required, an API developer **SHOULD** follow existing DNS naming conventions (internal link) to name environments.
 
 ## Monitoring
 
-### Monitor l'utilisation de l'API
+### Monitoring API consumption
 
-L'équipe en charge d'une API utilisée en production **DEVRAIT** s'assurer qu'elle est monitorée.
+The team in charge of an API running in a production environment **SHOULD** ensure it is being monitored.
 
 ### Health check
 
-Une API **DEVRAIT** fournir un endpoint de health check sous la forme de
-
-```json
+An API **SHOULD** expose an endpoint to check its health status
+```javascript
 {
   "name": "Va.Api.Business.MyAwesomeProduct",
   "status": "up",
@@ -35,13 +34,14 @@ Une API **DEVRAIT** fournir un endpoint de health check sous la forme de
 }
 ```
 
-De plus, la chaîne d'intégration continue **POURRAIT** l'utiliser afin de s'assurer que le déploiement s'est bien déroulé.
+Furthermore, continous integration tools **COULD** use the healthcheck endpoint to confirm that the API is running correctly.
 
-### Informations
 
-Dans les environnements non production, une API **DEVRAIT** fournir un endpoint exposant les informations de dépendance à ses librairies Vaudoise.
+### Dependencies
 
-```json
+In non-production environments, an API **SHOULD** expose an endpoint to list Vaudoise library dependencies being used.
+
+```javascript
 {
   "product": "Va.XCut.Back.Actuators.Core",
   "version": "1.0.0.13490",
@@ -63,11 +63,10 @@ Dans les environnements non production, une API **DEVRAIT** fournir un endpoint 
 }
 ```
 
-### Metriques
+### Hosting
 
-Dans les environnements non production, une API **DEVRAIT** fournir un endpoint exposant les unformations systeme basiques du serveur l'hébergeant.
-
-```json
+In non-production environments, an API **SHOULD** expose an endpoint to give basic information about the hosting server.
+```javascript
 {
   "machineDomain": "VAUDOISE",
   "machineName": "DEVABCDEF",
