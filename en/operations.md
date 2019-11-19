@@ -33,14 +33,12 @@ An API **SHOULD** expose an endpoint to check its health status
   }
 }
 ```
-
 Furthermore, continous integration tools **COULD** use the healthcheck endpoint to confirm that the API is running correctly.
 
 
 ### Dependencies
 
 In non-production environments, an API **SHOULD** expose an endpoint to list Vaudoise library dependencies being used.
-
 ```javascript
 {
   "product": "Va.XCut.Back.Actuators.Core",
@@ -65,7 +63,7 @@ In non-production environments, an API **SHOULD** expose an endpoint to list Vau
 
 ### Hosting
 
-In non-production environments, an API **SHOULD** expose an endpoint to give basic information about the hosting server.
+In non production environments, an API **SHOULD** expose an endpoint to give basic information about the hosting server.
 ```javascript
 {
   "machineDomain": "VAUDOISE",
