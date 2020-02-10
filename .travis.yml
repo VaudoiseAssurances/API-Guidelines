@@ -21,7 +21,7 @@ env:
   - GIT_AUTHOR_EMAIL: noreply@travis-ci.org
   - RESULT_PDF_PATH=$TRAVIS_BUILD_DIR/api-guidelines.pdf
   - TZ="Europe/Zurich"
-  
-  branches:
-    only:
-    - master
+
+branches:
+  only:
+  - master
