@@ -1,50 +1,50 @@
 # Protocole
 
-Cette section traite des problématiques au niveau du protocole et de ses standards.
+Cette section traite des problÃ©matiques au niveau du protocole et de ses standards.
 
 ## HTTP
 
 ### Protocole HTTP
 
-Toutes les API **DOIVENT** supporter le protocole HTTP et sa sémantique.
+Toutes les API **DOIVENT** supporter le protocole HTTP et sa sÃ©mantique.
 
 ### Codes HTTP
-Quelques règles pour l'utilisation des codes HTTP, le développeur d'API
+Quelques rÃ¨gles pour l'utilisation des codes HTTP, le dÃ©veloppeur d'API
 
-* **NE DOIT PAS** inventer des nouveaux codes HTTP ou dériver de leur sens originel,
-* **DOIT** fournir une documentation de qualité lors de l'utilisation de codes HTTP non-listés ci-dessous.
+* **NE DOIT PAS** inventer des nouveaux codes HTTP ou dÃ©river de leur sens originel,
+* **DOIT** fournir une documentation de qualitÃ© lors de l'utilisation de codes HTTP non-listÃ©s ci-dessous.
 
 #### 2XX Success
 
-La requêtes a été traitée avec succès.
+La requÃªtes a Ã©tÃ© traitÃ©e avec succÃ¨s.
 
 | Code | Definition |
 |------|------------|
-|200 OK | Succès de la requête |
-|201 Created | Resource créée avec succès |
-|202 Accepted | Requête acceptée mais non complétée (process asynchrone...) |
-|204 No content | Succès de la requête, réponse vide |
-|206 Partial | Résultat partiel (voir [pagination](#pagination)) |
+|200 OK | SuccÃ¨s de la requÃªte |
+|201 Created | Resource crÃ©Ã©e avec succÃ¨s |
+|202 Accepted | RequÃªte acceptÃ©e mais non complÃ©tÃ©e (process asynchrone...) |
+|204 No content | SuccÃ¨s de la requÃªte, rÃ©ponse vide |
+|206 Partial | RÃ©sultat partiel (voir [pagination](#pagination)) |
 
 #### 4XX Client Errors
 
-La requête contenait une erreur de la part de l'appelant.
+La requÃªte contenait une erreur de la part de l'appelant.
 
 | Code | Definition |
 |------|------------|
-|400 Bad request | La requête n'est pas valide (syntaxe, taille,...) |
-|401 Unauthorized | Le client n'est pas authentifié |
-|403 Forbidden | Le client ne possède pas des droits nécessaires |
-|404 Not found | La ressource demandée n'existe pas |
+|400 Bad request | La requÃªte n'est pas valide (syntaxe, taille,...) |
+|401 Unauthorized | Le client n'est pas authentifiÃ© |
+|403 Forbidden | Le client ne possÃ¨de pas des droits nÃ©cessaires |
+|404 Not found | La ressource demandÃ©e n'existe pas |
 |416 Range Not Satisfiable | Range Not Satisfiable |
-|418 I'm a teapot | Une requête de café a été envoyé à une théière |
-|422 Business validation | Un échec de la requête est du à une erreur de validation métier |
+|418 I'm a teapot | Une requÃªte de cafÃ© a Ã©tÃ© envoyÃ© Ã  une thÃ©iÃ¨re |
+|422 Business validation | Un Ã©chec de la requÃªte est dÃ» Ã  une erreur de validation mÃ©tier |
 
-Remarque: dans le cas d'une collection vide, le résultat se doit d'être un 200 retournant un tableau vide. Le 404 n'est pas approprié puisque, bien que vide, la collection existe.
+Remarque: dans le cas d'une collection vide, le rÃ©sultat se doit d'Ãªtre un 200 retournant un tableau vide. Le 404 n'est pas appropriÃ© puisque, bien que vide, la collection existe.
 
 #### 5XX Server Errors
 
-Le serveur n'a pas pu traiter la requête.
+Le serveur n'a pas pu traiter la requÃªte.
 
 | Code | Definition |
 |------|------------|
