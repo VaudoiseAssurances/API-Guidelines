@@ -26,6 +26,28 @@ Va-Impersonate: sio
 
 L'API **DEVRAIT** logguer le fait que l'action a été effectuée par un utilisateur A impersonant un utilisateur B.
 
+## JSON Patch
+
+La modification d'un objet peut se faire via une requête http `PUT`. De plus, l'utilisation du `PATCH` est possible via la description d'opérations telles que décrites par la ![RFC-6902](https://tools.ietf.org/html/rfc6902) (**JavaScript Object Notation (JSON) Patch**).
+
+On **DEVRAIT** se limiter aux opérations add, remove, replace. Les autres opérations décrites dans la RFC ne DEVRAIENT pas être utilisées.
+
+```
+si un objet est
+{ firstName:"Albert", contactDetails: { phoneNumbers: [] } };
+ 
+et que l'on applique la suite d'opérations suivantes:
+[
+  { op:"replace", path:"/firstName", value:"Joachim" },
+  { op:"add", path:"/lastName", value:"Wester" },
+  { op:"add", path:"/contactDetails/phoneNumbers/0", value: { number:"555-123" }  }
+];
+ 
+L'objet DOIT être transformé en
+{ firstName:"Joachim", lastName:"Wester", contactDetails: { phoneNumbers: [{number:"555-123"}] } };
+```
+
+**Attention**, il a été constaté que le swagger peut ne pas être généré correctement. Dans ce cas, il **DOIT** contenir une description textuelle décrivant qu'il s'agit d'une opération json-patch et quel type d'objet elle reçoit.
 
 ## Localisation
 
