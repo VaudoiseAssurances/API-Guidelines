@@ -14,7 +14,8 @@ echo '---- Switch to gh-pages branch ----'
 git checkout gh-pages
 
 echo '---- Copy latest PDF build ----'
-cp $RESULT_PDF_PATH ./
+cp $RESULT_PDF_FR_PATH ./
+cp $RESULT_PDF_EN_PATH ./
 
 echo '---- Set git settings ----'
 git config --global user.name $GIT_AUTHOR_NAME
