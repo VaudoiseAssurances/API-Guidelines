@@ -1,4 +1,4 @@
-Chaque équipe est responsable du respect de ces standards pendant les développements d'API et chaque membre est encouragé à faire évoluer ces guidelines de manière collaborative, avec les membres de la communauté de pratique API.
+Every team is accountable to respect these standards during API development, and every member is encouraged to work collaboratively with members of the API Community of Practice to improve these guidelines.
 
 In the case of an evolution of these API standards, the following rules must be followed:
 
