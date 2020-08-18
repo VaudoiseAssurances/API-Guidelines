@@ -19,7 +19,8 @@ env:
   - GH_PROJECT_NAME: API-Guidelines
   - GIT_AUTHOR_NAME: Travis
   - GIT_AUTHOR_EMAIL: noreply@travis-ci.org
-  - RESULT_PDF_PATH=$TRAVIS_BUILD_DIR/api-guidelines.pdf
+  - RESULT_PDF_FR_PATH=$TRAVIS_BUILD_DIR/api-guidelines-fr.pdf
+  - RESULT_PDF_EN_PATH=$TRAVIS_BUILD_DIR/api-guidelines-en.pdf
   - TZ="Europe/Zurich"
   
   branches:
