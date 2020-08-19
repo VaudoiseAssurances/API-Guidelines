@@ -1,55 +1,55 @@
-# Protocole
+# Protocol
 
-Cette section traite des problématiques au niveau du protocole et de ses standards.
+This section addresses issues related to the protocol and its standards.
 
 ## HTTP
 
-### Protocole HTTP
+### HTTP Protocol
 
-Toutes les API **DOIVENT** supporter le protocole HTTP et sa sémantique.
+All APIs **MUST** support the HTTP protocol and its semantics.
 
-### Codes HTTP
-Quelques règles pour l'utilisation des codes HTTP, le développeur d'API
+### HTTP Codes
+Some rules for the use of HTTP codes, the API developer
 
-* **NE DOIT PAS** inventer des nouveaux codes HTTP ou dériver de leur sens originel,
-* **DOIT** fournir une documentation de qualité lors de l'utilisation de codes HTTP non-listés ci-dessous.
+* **MUST NOT** invent new HTTP codes or derive from their original meaning,
+* **MUST** provide high quality documentation when using HTTP codes not listed below.
 
 #### 2XX Success
 
-La requêtes a été traitée avec succès.
+The request was processed successfully.
 
 | Code | Definition |
 |------|------------|
 |200 OK | Succès de la requête |
-|201 Created | Resource créée avec succès |
-|202 Accepted | Requête acceptée mais non complétée (process asynchrone...) |
-|204 No content | Succès de la requête, réponse vide |
+|201 Created | Resource created successfully|
+|202 Accepted | Request accepted but not completed (asynchronous process...) |
+|204 No content | Request successful, empty response |
 |206 Partial | Résultat partiel (voir [pagination](#pagination)) |
 
 #### 4XX Client Errors
 
-La requête contenait une erreur de la part de l'appelant.
+The request contained an error from the consumer.
 
 | Code | Definition |
 |------|------------|
-|400 Bad request | La requête n'est pas valide (syntaxe, taille,...) |
-|401 Unauthorized | Le client n'est pas authentifié |
-|403 Forbidden | Le client ne possède pas des droits nécessaires |
-|404 Not found | La ressource demandée n'existe pas |
+|400 Bad request | The request is not valid (syntax, size, ...) |
+|401 Unauthorized | The client is not authenticated |
+|403 Forbidden | The customer does not have the necessary rights |
+|404 Not found | The requested resource does not exist |
 |416 Range Not Satisfiable | Range Not Satisfiable |
-|418 I'm a teapot | Une requête de café a été envoyé à une théière |
-|422 Business validation | Un échec de la requête est dû à une erreur de validation métier |
+|418 I'm a teapot | A request for coffee was sent to a teapot |
+|422 Business validation | A request failed due to a business validation error |
 
-Remarque: dans le cas d'une collection vide, le résultat se doit d'être un 200 retournant un tableau vide. Le 404 n'est pas approprié puisque, bien que vide, la collection existe.
+Note: in the case of an empty collection, the result must be a 200 returning an empty array. The 404 is not appropriate since, although empty, the collection exists.
 
 #### 5XX Server Errors
 
-Le serveur n'a pas pu traiter la requête.
+The server couldn't process the request.
 
 | Code | Definition |
 |------|------------|
-|500 Internal server error | Une exception inattendue s'est produite |
+|500 Internal server error | An unexpected exception occurred. |
 
 ## TLS
 
-Une API utilisant le protocole HTTP **DEVRAIT** utiliser l'HTTPS.
+An API using the protocol HTTP **SHOULD** use HTTPS.
