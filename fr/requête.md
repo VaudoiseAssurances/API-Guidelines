@@ -46,11 +46,12 @@ et que l'on applique la suite d'opérations suivantes:
 L'objet DOIT être transformé en
 { firstName:"Joachim", lastName:"Wester", contactDetails: { phoneNumbers: [{number:"555-123"}] } };
 ```
+
 **Attention**, il a été constaté que le swagger peut ne pas être généré correctement. Dans ce cas, il **DOIT** contenir une description textuelle décrivant qu'il s'agit d'une opération json-patch et quel type d'objet elle reçoit.
 
 ## Localisation
 
-La langue désirée **DEVRAIT** être définie en utilisant le header `Accept-Language`.
+La langue désirée **DEVRAIT** être définie en utilisant le header `Accept-Language` et **PEUT** recevoir autant une langue avec une notion régionale (fr-CH) qu'une langue seule (FR).
 
 A noter que le contenu de la payload JSON ainsi que les paramètres transmis dans l'URL **DOIVENT** être formatés selon le standard JSON.
 
