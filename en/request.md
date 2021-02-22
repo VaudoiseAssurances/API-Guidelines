@@ -10,7 +10,7 @@ During an operation conducted asynchronously by the server, the server **MUST** 
 Location: https://VaHappyHi:8081/v2/operations/8156ab4e
 ```
 
-The `operation` resource **SHOULD**  contain the current state of the operation (`notStarted`, `running`, `succeeded`, `failed`). 
+The `operation` resource **SHOULD**  contain the current state of the operation (`notStarted`, `running`, `succeeded`, `failed`).
 
 * If the status is `notStarted` or `running`, then the return code **MUST** be 202 and the header location remains the same,
 * If the status is `notStarted` or `running`, then the header Retry-After **SHOULD**  indicate the number of seconds to wait before checking the status of the operation,
@@ -35,14 +35,14 @@ We **SHOULD**  only use the add, remove and replace operations. Other operations
 ```
 if an object is
 { firstName:"Albert", contactDetails: { phoneNumbers: [] } };
- 
+
 and we apply the following operations:
 [
   { op:"replace", path:"/firstName", value:"Joachim" },
   { op:"add", path:"/lastName", value:"Wester" },
   { op:"add", path:"/contactDetails/phoneNumbers/0", value: { number:"555-123" }  }
 ];
- 
+
 The object MUST be transformed into
 { firstName:"Joachim", lastName:"Wester", contactDetails: { phoneNumbers: [{number:"555-123"}] } };
 ```
@@ -68,8 +68,8 @@ HTTP Response
 HTTP/1.1 200 OK
 Content-Type: [...]
 Content-Language: fr-ch
- 
- 
+
+
 [...]
 ```
 
