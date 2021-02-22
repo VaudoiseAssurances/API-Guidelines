@@ -51,7 +51,7 @@ The object MUST be transformed into
 
 ## Localisation
 
-The desired language **SHOULD** be set using the `Accept-Language` header.
+The desired language **SHOULD** be set using the `Accept-Language` header and **COULD** contains either a language with locale (fr-CH) or a language alone (FR).
 
 Please note that the content of the JSON payload as well as the parameters transmitted in the URL **MUST** be formatted according to the JSON standard.
 
