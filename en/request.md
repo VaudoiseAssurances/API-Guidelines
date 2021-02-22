@@ -84,4 +84,4 @@ There are two types of iteration techniques:
 
 It is important to take into account the way pagination is used by the consumers. It seems that direct access to a specific page is less used than navigation via links of the type _next page/previous page_. Therefore, it is better to favour _cursor-based_ pagination.
 
-In all case, we **MUST** start pagination at 0.
+In all cases, we **MUST** start pagination at 0.
