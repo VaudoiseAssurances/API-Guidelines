@@ -10,7 +10,7 @@ Lors d'une opération conduite de manière asynchrone par le serveur, celui-ci *
 Location: https://VaHappyHi:8081/v2/operations/8156ab4e
 ```
 
-La ressource `operation` **DEVRAIT** contenir l'état actuel de l'opération (`notStarted`, `running`, `succeeded`, `failed`). 
+La ressource `operation` **DEVRAIT** contenir l'état actuel de l'opération (`notStarted`, `running`, `succeeded`, `failed`).
 
 * Si l'état est `notStarted` ou `running`, alors le code de retour **DOIT** être 202 et le header location reste le même,
 * Si l'état est `notStarted` ou `running`, alors le header Retry-After **DEVRAIT** indiquer le nombre de secondes à attendre avant de vérifier l'état de l'opération,
@@ -35,22 +35,23 @@ On **DEVRAIT** se limiter aux opérations add, remove, replace. Les autres opér
 ```
 si un objet est
 { firstName:"Albert", contactDetails: { phoneNumbers: [] } };
- 
+
 et que l'on applique la suite d'opérations suivantes:
 [
   { op:"replace", path:"/firstName", value:"Joachim" },
   { op:"add", path:"/lastName", value:"Wester" },
   { op:"add", path:"/contactDetails/phoneNumbers/0", value: { number:"555-123" }  }
 ];
- 
+
 L'objet DOIT être transformé en
 { firstName:"Joachim", lastName:"Wester", contactDetails: { phoneNumbers: [{number:"555-123"}] } };
 ```
+
 **Attention**, il a été constaté que le swagger peut ne pas être généré correctement. Dans ce cas, il **DOIT** contenir une description textuelle décrivant qu'il s'agit d'une opération json-patch et quel type d'objet elle reçoit.
 
 ## Localisation
 
-La langue désirée **DEVRAIT** être définie en utilisant le header `Accept-Language`.
+La langue désirée **DEVRAIT** être définie en utilisant le header `Accept-Language` et **PEUT** recevoir autant une langue avec une notion régionale (fr-CH) qu'une langue seule (FR).
 
 A noter que le contenu de la payload JSON ainsi que les paramètres transmis dans l'URL **DOIVENT** être formatés selon le standard JSON.
 
@@ -83,3 +84,5 @@ Il existe deux types de techniques d'itération:
 * Cursor-based.
 
 Il est important de prendre en compte la façon dont est utilisée la pagination c/o les consommateurs. Il semblerait que l'accès direct à une page spécifique est bien moins utilisé que la navigation via des liens de type _page suivante/page précédente_. De ce fait, il vaut mieux favoriser la pagination de type _cursor-based_.
+
+Dans tous les cas, on **DOIT** commencer la pagination à 0.
