@@ -30,7 +30,7 @@ L'API **DEVRAIT** logguer le fait que l'action a été effectuée par un utilisa
 
 La modification d'un objet peut se faire via une requête http `PUT`. De plus, l'utilisation du `PATCH` est possible via la description d'opérations telles que décrites par la [RFC-6902](https://tools.ietf.org/html/rfc6902) (**JavaScript Object Notation (JSON) Patch**).
 
-On **DEVRAIT** se limiter aux opérations add, remove, replace. Les autres opérations décrites dans la RFC ne DEVRAIENT pas être utilisées.
+On **DEVRAIT** se limiter aux opérations add, remove, replace. Les autres opérations décrites dans la RFC ne **DEVRAIENT PAS** être utilisées.
 
 ```
 si un objet est
