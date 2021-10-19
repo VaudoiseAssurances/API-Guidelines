@@ -30,7 +30,7 @@ The API **SHOULD** log the fact that the action was performed by user A imperson
 
 The update of an object can be done via an http request `PUT`. In addition, use of `PATCH' is possible using the operations described in [RFC-6902](https://tools.ietf.org/html/rfc6902) (**JavaScript Object Notation (JSON) Patch**).
 
-We **SHOULD**  only use the add, remove and replace operations. Other operations described in the RFC **SHOULD NOT** not be used.
+We **SHOULD**  only use the add, remove and replace operations. Other operations described in the RFC **SHOULD NOT** be used.
 
 ```
 if an object is
