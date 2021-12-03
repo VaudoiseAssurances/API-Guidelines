@@ -1,6 +1,7 @@
 ![Build](https://api.travis-ci.com/VaudoiseAssurances/API-Guidelines.svg?branch=master)
 
 # Vaudoise API Guidelines
+
 so called "Standards API"
 
 ## Purpose
@@ -17,4 +18,4 @@ If you speak english, you can access our [API Standards v1.1 (english version)](
 
 Shoot us an email at opensource@vaudoise.ch if you have questions.
 
-Feel free to use these guidelines if needed. 
+Feel free to use these guidelines if needed.

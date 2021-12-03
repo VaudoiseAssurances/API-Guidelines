@@ -86,6 +86,7 @@ Although these methods are not equivalent to CRUD, it is preferable, in our case
 | DELETE      | Idempotent | Delete a resource | D |
 
 #### POST
+
 * A POST (create, in our case) successfully executed will return a 201. The header **MUST** contain `Location` with a link to the newly created entity.
 * Asynchronous operations **MUST** return a 202 containing a header `Location` in order to monitor the operation.
 
