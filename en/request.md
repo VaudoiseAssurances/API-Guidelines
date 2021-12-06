@@ -58,13 +58,15 @@ Please note that the content of the JSON payload as well as the parameters trans
 ### Exemple
 
 HTTP Request
-```
+
+```http
 GET /contracts HTTP/1.1
 Accept-Language: fr-ch, de-ch
 ```
 
 HTTP Response
-```
+
+```http
 HTTP/1.1 200 OK
 Content-Type: [...]
 Content-Language: fr-ch

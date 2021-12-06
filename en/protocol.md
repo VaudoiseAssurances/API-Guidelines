@@ -9,6 +9,7 @@ This section addresses issues related to the protocol and its standards.
 All APIs **MUST** support the HTTP protocol and its semantics.
 
 ### HTTP Codes
+
 Some rules for the use of HTTP codes, the API developer
 
 * **MUST NOT** invent new HTTP codes or derive from their original meaning,
