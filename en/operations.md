@@ -17,29 +17,35 @@ The team in charge of an API running in a production environment **SHOULD** ensu
 ### Health check
 
 An API **SHOULD** expose an endpoint to check its health status
-```javascript
+
+```json
 {
   "name": "Va.Api.Business.MyAwesomeProduct",
   "status": "up",
-  "dependencies": {
-    "Va.Api.Tech.Dependency1": {
+  "dependencies": [
+    {
+      "name": "Va.Api.Tech.Dependency1",
+      "version": null,
       "depth": 1,
       "status": "up"
     },
-    "Va.Api.Tech.SubDependency": {
+    {
+      "name": "Va.Api.Tech.SubDependency",
+      "version": "4.9.0-SNAPSHOT",
       "depth": 2,
       "status": "up"
     }
-  }
+  ]
 }
 ```
-Furthermore, continous integration tools **COULD** use the healthcheck endpoint to confirm that the API is running correctly.
 
+Furthermore, continous integration tools **COULD** use the healthcheck endpoint to confirm that the API is running correctly.
 
 ### Dependencies
 
 In non-production environments, an API **SHOULD** expose an endpoint to list Vaudoise library dependencies being used.
-```javascript
+
+```json
 {
   "product": "Va.XCut.Back.Actuators.Core",
   "version": "1.0.0.13490",
@@ -64,7 +70,8 @@ In non-production environments, an API **SHOULD** expose an endpoint to list Vau
 ### Hosting
 
 In non production environments, an API **SHOULD** expose an endpoint to give basic information about the hosting server.
-```javascript
+
+```json
 {
   "machineDomain": "VAUDOISE",
   "machineName": "DEVABCDEF",
