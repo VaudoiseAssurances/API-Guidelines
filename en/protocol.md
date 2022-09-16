@@ -25,7 +25,7 @@ The request was processed successfully.
 |201 Created | Resource created successfully|
 |202 Accepted | Request accepted but not completed (asynchronous process...) |
 |204 No content | Request successful, empty response |
-|206 Partial | Résultat partiel (voir [pagination](#pagination)) |
+|206 Partial | Partial result (see [pagination](#pagination)) |
 
 #### 4XX Client Errors
 
