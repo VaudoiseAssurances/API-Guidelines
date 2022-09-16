@@ -21,7 +21,7 @@ The request was processed successfully.
 
 | Code | Definition |
 |------|------------|
-|200 OK | Succès de la requête |
+|200 OK | Request successful |
 |201 Created | Resource created successfully|
 |202 Accepted | Request accepted but not completed (asynchronous process...) |
 |204 No content | Request successful, empty response |
