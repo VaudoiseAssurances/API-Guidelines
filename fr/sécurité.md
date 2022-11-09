@@ -4,10 +4,10 @@ Il y a deux types d'APIs : celles qui présentent des enjeux de sécurité, et c
 
 Une API est considérée comme présentant des enjeux de sécurité si la réponse à au moins l'une des 3 questions ci-dessous est "oui" :
   1. _Visibilité_: L'API est-elle exposée à l'externe de la Vaudoise ?
-  2. _Type de données_: L'API permet-elle l'accès à des données restreintes (ex. données personnelles, ... ) ou confidentielles (ex. données personnelles, sensibles, ...) selon la définition des niveaux de confidentialité de la Vaudoise ?
+  2. _Type de données_: L'API permet-elle l'accès à des données restreintes ou confidentielles selon la définition des niveaux de confidentialité de la Vaudoise ?
   3. _Accès à la donnée_: L'API permet-elle la création, la modification ou la suppression de données ?
 
-Ces questions et leurs réponses *DOIVENT* figurer dans la documentation de chaque API (voir chapitre Documentation Générale). De plus, la colonne "Security Case" (internet, sensitive data, data update) dans les en-têtes de la documentation *DOIT* être renseignée.
+Ces questions et leurs réponses *DOIVENT* figurer dans la documentation de chaque API (voir chapitre Documentation Générale). On *DOIT* également indiquer dans la documentation si l'API _présente des enjeux de sécurité_.
 
 Si une API présente des enjeux de sécurité, alors les exigences suivantes *DOIVENT* être remplies.
  
