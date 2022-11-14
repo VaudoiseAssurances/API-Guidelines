@@ -16,6 +16,6 @@ Si une API présente des enjeux de sécurité, alors les exigences suivantes *DO
   - Droits gérés au niveau des méthodes et pas seulement de l'API et modèle d'accès documenté (fiche IAM) (couvert par l'API Manager)
   - Appel à l'API authentifié via jeton (couvert par l'API Manager)
   - Logging - les appels à l'API doivent être enregistrés et conservés pendant 90 jours (couvert par l'API Manager, mais vérifier gestion des logs et vérifier avec les logs du service)
-  - Mise en place du contrôle périodique des droits (CPA) pour une revue régulière des accès donnés sur l’API aux end users dans l'API Manager
+  - Mise en place du contrôle périodique des droits (CPA) pour une revue régulière des accès donnés sur l'API aux end users dans l'API Manager
 
 Si elles le sont, le tag « API secured » *DOIT* être mis à « oui » dans la page Wiki de documentation de l'API.
