@@ -11,6 +11,7 @@ These questions and their answers *MUST* be included in the documentation of eac
 
 If an API has security criteria, then the following requirements *MUST* be met.
  
+   - Code scanning – integration of source code into WhiteHat (only if the API is exposed on the Internet – git _repositories_ linked to the API must be documented and provided to the security team)
   - Integration into the API manager (mandatory if the API is exposed to the Internet, recommended otherwise)   
   - Rights managed up to the method level and not just at the API level, And the access model to be documented  (IAM sheet) (covered by the API Manager)   
   - Authenticated API calls using tokens (covered by API Manager)   
