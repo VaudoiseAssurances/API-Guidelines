@@ -34,17 +34,17 @@ We **SHOULD**  only use the add, remove and replace operations. Other operations
 
 ```
 if an object is
-{ firstName:"Albert", contactDetails: { phoneNumbers: [] } };
+{ "firstName":"Albert", "contactDetails": { "phoneNumbers": [] } };
 
 and we apply the following operations:
 [
-  { op:"replace", path:"/firstName", value:"Joachim" },
-  { op:"add", path:"/lastName", value:"Wester" },
-  { op:"add", path:"/contactDetails/phoneNumbers/0", value: { number:"555-123" }  }
+  { "op":"replace", "path":"/firstName", "value":"Joachim" },
+  { "op":"add", "path":"/lastName", "value":"Wester" },
+  { "op":"add", "path":"/contactDetails/phoneNumbers/0", "value": { number:"555-123" }  }
 ];
 
 The object MUST be transformed into
-{ firstName:"Joachim", lastName:"Wester", contactDetails: { phoneNumbers: [{number:"555-123"}] } };
+{ "firstName":"Joachim", "lastName":"Wester", "contactDetails": { "phoneNumbers": [{"number":"555-123"}] } };
 ```
 
 **Warning**, it has been noted that the swagger may not be generated correctly. In this case, it **MUST** contain a textual description describing that it is a json-patch operation and what type of object it accepts.
