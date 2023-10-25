@@ -6,7 +6,7 @@ This section covers query standards (i.e. filter, paging, sorting, asynchronism,
 
 During an operation conducted asynchronously by the server, the server **MUST** return an HTTP code 202 with a header Location giving the location of the URL to follow the operation. This URL will point to a resource of type operations.
 
-```
+```http
 Location: https://VaHappyHi:8081/v2/operations/8156ab4e
 ```
 
@@ -20,7 +20,7 @@ The `operation` resource **SHOULD**  contain the current state of the operation 
 
 The impersonation implementation **SHOULD NOT** be implemented only at customer level, but **SHOULD** be at API level. Impersonation **SHOULD** be done using a custom header:
 
-```
+```http
 Va-Impersonate: sio
 ```
 
@@ -32,7 +32,7 @@ The update of an object can be done via an http request `PUT`. In addition, use 
 
 We **SHOULD**  only use the add, remove and replace operations. Other operations described in the RFC **SHOULD NOT** be used.
 
-```
+```json
 if an object is
 { "firstName":"Albert", "contactDetails": { "phoneNumbers": [] } };
 
@@ -70,7 +70,6 @@ HTTP Response
 HTTP/1.1 200 OK
 Content-Type: [...]
 Content-Language: fr-ch
-
 
 [...]
 ```
