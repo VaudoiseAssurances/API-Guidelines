@@ -9,7 +9,7 @@ This document uses the terms **RIGHT**, **SHOULD**, **MUST**, **MUST** as keywor
 
 # Table des matières
 
-* [Basic Principles](basic-principles.md.md)
+* [Basic Principles](basic-principles.md)
   * [API First](basic-principles.md#api-first)
   * [Compatibility](basic-principles.md#compatibilité)
   * [Documentation](basic-principles.md#documentation)
