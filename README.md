@@ -6,7 +6,7 @@ so called "Standards API"
 
 ## Purpose
 
-In 2016 we discovered that consuming APIs at La Vaudoise was quite hard. Everybody was developing APIs in its own way. There was no common pratice and people were not using worldwide standards, such as the HTTP protocol, properly.
+In 2016 we discovered that consuming APIs at Vaudoise was quite hard. Everybody was developing APIs in its own way. There was no common pratice and people were not using worldwide standards, such as the HTTP protocol, properly.
 
 ## Usage
 
