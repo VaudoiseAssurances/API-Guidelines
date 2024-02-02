@@ -32,7 +32,7 @@ La modification d'un objet peut se faire via une requête http `PUT`. De plus, l
 
 On **DEVRAIT** se limiter aux opérations add, remove, replace. Les autres opérations décrites dans la RFC ne **DEVRAIENT PAS** être utilisées.
 
-```
+```json
 si un objet est
 { "firstName":"Albert", "contactDetails": { "phoneNumbers": [] } };
 
