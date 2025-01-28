@@ -1,10 +1,10 @@
 # Operations
 
-This section covers standards linked to operations.
+This section covers standards related to operations. Those standards are simply the actuator standards. Keep the actuator standards simplify the alignement of all applications in VA ecosystem.
 
 ## Environments
 
-An API **MUST** be deployed to a QA (also called UAT) environment before being pushed to production.
+An API **MUST** be deployed to a UAT environment before being pushed to production.
 
 If more environments are required, an API developer **SHOULD** follow existing DNS naming conventions (internal link) to name environments.
 
@@ -18,71 +18,92 @@ The team in charge of an API running in a production environment **SHOULD** ensu
 
 An API **SHOULD** expose an endpoint to check its health status
 
+The parent path ```/health``` **SHOULD** provide some details about components (dependencies)
+
 ```json
 {
-  "name": "Va.Api.Business.MyAwesomeProduct",
-  "status": "up",
-  "dependencies": [
-    {
-      "name": "Va.Api.Tech.Dependency1",
-      "version": null,
-      "depth": 1,
-      "status": "up"
+  "status": "UP",
+  "components": {
+    "discoveryComposite": {
+      "description": "",
+      "status": "UP",
+      "components": {
+        "discoveryClient": {
+          "description": "",
+          "status": "UP"
+        }
+      }
     },
-    {
-      "name": "Va.Api.Tech.SubDependency",
-      "version": "4.9.0-SNAPSHOT",
-      "depth": 2,
-      "status": "up"
+    "livenessState": {
+      "status": "UP"
+    },
+    "readinessState": {
+      "status": "UP"
     }
+  },
+  "groups": [
+    "liveness",
+    "readiness"
   ]
 }
+
+```
+
+The path ```/health/liveness``` **SHOULD** provide the liveness
+
+```json
+{
+  "status": "UP"
+}
+
+```
+
+The path ```/health/readiness``` **SHOULD** provide the readiness
+
+```json
+{
+  "status": "UP"
+}
+
 ```
 
 Furthermore, continous integration tools **COULD** use the healthcheck endpoint to confirm that the API is running correctly.
 
-### Dependencies
+### Information
 
-In non-production environments, an API **SHOULD** expose an endpoint to list Vaudoise library dependencies being used.
+In non production environments, an API **SHOULD** expose an endpoint to give basic information about its run.
+
+The path ```/info``` **SHOULD** provide following information
 
 ```json
 {
-  "product": "Va.XCut.Back.Actuators.Core",
-  "version": "1.0.0.13490",
-  "libraries": [
-    {
-      "name": "Va.XCut.Api.Template.Application",
-      "product": "Va.XCut.Api.Template",
-      "version": "0.0.0.13490",
-      "informationalVersion": "0.0.0",
-      "configuration": "Debug"
-    },
-    {
-      "name": "Va.XCut.Back.Logger.Std",
-      "product": "Va.XCut.Back.Logger.Std",
-      "version": "1.0.0.13490",
-      "informationalVersion": "1.0.0-Beta01",
-      "configuration": "Debug"
-  ]
+  "product": "vaapi-mails",
+  "serviceStartTime": "2025-01-27T10:23:40Z",
+  "buildTime": "2025-01-16T15:30:29Z",
+  "serviceProcessId": 1,
+  "version": "1.7.0-SNAPSHOT"
 }
+
 ```
 
-### Hosting
+### Metrics
 
-In non production environments, an API **SHOULD** expose an endpoint to give basic information about the hosting server.
+In non production environments, an API **SHOULD** expose an endpoint to give basic information about the metrics.
+
+The path ```/metrics``` **SHOULD** provide following information (not exhaustive list)
 
 ```json
 {
-  "machineDomain": "VAUDOISE",
-  "machineName": "DEVABCDEF",
-  "machineOS": "Microsoft Windows 10.0.10240 ",
-  "machineProcessorCount": 8,
-  "environmentName": ".NET Core 4.6.26606.02",
-  "environmentArchitecture": "x64",
-  "serviceName": "Va.XCut.Api.Template.Application",
-  "serviceProcessId": 8752,
-  "serviceStartTime": "2018-07-05T07:29:44.4771925+02:00",
-  "serviceMemory": 92827648,
-  "serviceThreads": 21
+  "names": [
+    "application.ready.time",
+    "application.started.time",
+    "disk.free",
+    "disk.total",
+    "executor.active",
+    "executor.completed",
+    "executor.pool.core",
+    "executor.pool.max",
+    ...
+  ]
 }
 ```
