@@ -1,6 +1,6 @@
 # Operations
 
-This section covers standards linked to operations. Those standards are simply the actuator standards. Keep the actuator standards simplify the alignement of all applications in VA ecosystem.
+This section covers standards related to operations. Those standards are simply the actuator standards. Keep the actuator standards simplify the alignement of all applications in VA ecosystem.
 
 ## Environments
 
@@ -71,7 +71,7 @@ Furthermore, continous integration tools **COULD** use the healthcheck endpoint 
 
 ### Information
 
-An API **SHOULD** expose an endpoint to provide its information
+In non production environments, an API **SHOULD** expose an endpoint to give basic information about its run.
 
 The path ```/info``` **SHOULD** provide following information
 
